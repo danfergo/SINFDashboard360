@@ -69,3 +69,9 @@ c:\users\user\documents\visual studio 2013\Projects\SINFDashboard360\SINFDashboa
 c:\users\user\documents\visual studio 2013\Projects\SINFDashboard360\SINFDashboard360\obj\Debug\SINFDashboard360.csprojResolveAssemblyReference.cache
 c:\users\user\documents\visual studio 2013\Projects\SINFDashboard360\SINFDashboard360\obj\Debug\SINFDashboard360.dll
 c:\users\user\documents\visual studio 2013\Projects\SINFDashboard360\SINFDashboard360\obj\Debug\SINFDashboard360.pdb
+C:\Users\user\Documents\Visual Studio 2013\Projects\SINFDashboard360\SINFDashboard360\bin\EntityFramework.SqlServer.dll
+C:\Users\user\Documents\Visual Studio 2013\Projects\SINFDashboard360\SINFDashboard360\bin\System.Data.SQLite.dll
+C:\Users\user\Documents\Visual Studio 2013\Projects\SINFDashboard360\SINFDashboard360\bin\System.Data.SQLite.EF6.dll
+C:\Users\user\Documents\Visual Studio 2013\Projects\SINFDashboard360\SINFDashboard360\bin\System.Data.SQLite.Linq.dll
+C:\Users\user\Documents\Visual Studio 2013\Projects\SINFDashboard360\SINFDashboard360\bin\EntityFramework.SqlServer.xml
+C:\Users\user\Documents\Visual Studio 2013\Projects\SINFDashboard360\SINFDashboard360\bin\System.Data.SQLite.xml
