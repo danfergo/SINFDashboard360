@@ -9,6 +9,6 @@ CREATE TABLE accounts
 );
 
 
-INSERT INTO accounts (email, password) VALUES ('admin@dashboard360.com',123456);
-INSERT INTO accounts (email, password) VALUES ('vendedor@dashboard360',123456);
+INSERT INTO accounts (email, password) VALUES ('admin@dashboard360.com','123456');
+INSERT INTO accounts (email, password) VALUES ('vendedor@dashboard360','123456');
 
