@@ -9,31 +9,11 @@ namespace SINFDashboard360.Controllers
 {
     public class ProductController : ApiController
     {
-        // GET api/product
-        public IEnumerable<string> Get()
-        {
-            return new string[] { "value1", "value2" };
-        }
-
         // GET api/product/5
-        public string Get(int id)
+        public Models.Produto Get(String id)
         {
-            return "value";
+            return Models.Produto.getProdutoPeloId(id);
         }
 
-        // POST api/product
-        public void Post([FromBody]string value)
-        {
-        }
-
-        // PUT api/product/5
-        public void Put(int id, [FromBody]string value)
-        {
-        }
-
-        // DELETE api/product/5
-        public void Delete(int id)
-        {
-        }
     }
 }

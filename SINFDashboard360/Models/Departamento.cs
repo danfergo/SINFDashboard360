@@ -10,6 +10,7 @@ namespace SINFDashboard360.Models
     {
         public string department_id;
         public string description;
+        public List<Funcionario> employees = new List<Funcionario>();
 
 
 
@@ -19,7 +20,7 @@ namespace SINFDashboard360.Models
 
             StdBELista objList;
 
-            List<Departamento> listClientes = new List<Departamento>();
+            List<Departamento> listDepartamentos = new List<Departamento>();
 
             if (Lib_Primavera.PriEngine.InitializeCompany(SINFDashboard360.Properties.Settings.Default.Company.Trim(), SINFDashboard360.Properties.Settings.Default.User.Trim(), SINFDashboard360.Properties.Settings.Default.Password.Trim()) == true)
             {
@@ -31,16 +32,17 @@ namespace SINFDashboard360.Models
 
                 while (!objList.NoFim())
                 {
-                    listClientes.Add(new Departamento
+                    listDepartamentos.Add(new Departamento
                     {
                         department_id = objList.Valor("Departamento"),
-                        description = objList.Valor("Descricao")
+                        description = objList.Valor("Descricao"),
+                        employees = Funcionario.getListaDepartamentosPeloCodigo(objList.Valor("Departamento"))
                     });
                     objList.Seguinte();
 
                 }
 
-                return listClientes;
+                return listDepartamentos;
             }
             else
                 return null;

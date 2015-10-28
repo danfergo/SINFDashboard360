@@ -4,36 +4,37 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using SINFDashboard360.Lib_Primavera.Model;
+
 
 namespace SINFDashboard360.Controllers
 {
     public class ClientsController : ApiController
     {
-        // GET api/clients
-        public IEnumerable<string> Get()
+
+        // GET: /Clientes/
+
+        public IEnumerable<Lib_Primavera.Model.Cliente> Get()
         {
-            return new string[] { "value1", "value2" };
+            return Lib_Primavera.PriIntegration.ListaClientes();
         }
 
-        // GET api/clients/5
-        public string Get(int id)
+
+        // GET api/cliente/5    
+        public Cliente Get(string id)
         {
-            return "value";
+            Lib_Primavera.Model.Cliente cliente = Lib_Primavera.PriIntegration.GetCliente(id);
+            if (cliente == null)
+            {
+                throw new HttpResponseException(
+                        Request.CreateResponse(HttpStatusCode.NotFound));
+
+            }
+            else
+            {
+                return cliente;
+            }
         }
 
-        // POST api/clients
-        public void Post([FromBody]string value)
-        {
-        }
-
-        // PUT api/clients/5
-        public void Put(int id, [FromBody]string value)
-        {
-        }
-
-        // DELETE api/clients/5
-        public void Delete(int id)
-        {
-        }
     }
 }
