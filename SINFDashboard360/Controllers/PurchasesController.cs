@@ -42,8 +42,8 @@ namespace SINFDashboard360.Controllers
             DateTime max_date_s = new DateTime();
             try
             {
-                min_date_s = DateTime.ParseExact(min_date, "dd-MM-yyyyThh:mm:ss", CultureInfo.InvariantCulture);
-                max_date_s = DateTime.ParseExact(max_date, "dd-MM-yyyyThh:mm:ss", CultureInfo.InvariantCulture);
+                min_date_s = DateTime.ParseExact(min_date, "dd-MM-yyyy", CultureInfo.InvariantCulture);
+                max_date_s = DateTime.ParseExact(max_date, "dd-MM-yyyy", CultureInfo.InvariantCulture);
             }
             catch (Exception e)
             {
