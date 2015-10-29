@@ -10,11 +10,12 @@ namespace SINFDashboard360.Controllers
     public class InvoicesController : ApiController
     {
         // GET api/invoices
-        public IEnumerable<string> Get()
+        public IEnumerable<Lib_Primavera.Model.Factura> Get()
         {
-            return new string[] { "value1", "value2" };
+            return Lib_Primavera.PriIntegration.ListaFacturas();
         }
 
+        /*
         // GET api/invoices/5
         public string Get(int id)
         {
@@ -35,5 +36,6 @@ namespace SINFDashboard360.Controllers
         public void Delete(int id)
         {
         }
+        */
     }
 }

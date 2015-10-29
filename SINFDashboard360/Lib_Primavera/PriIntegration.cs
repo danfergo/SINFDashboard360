@@ -592,5 +592,59 @@ namespace SINFDashboard360.Lib_Primavera
         }
 
         #endregion DocsVenda
+
+        #region Factura
+
+        public static Model.Factura parseFacturaObj(StdBELista obj)
+        {
+            Model.Factura factura = new Model.Factura();
+
+            factura.entidade = obj.Valor("Entidade");
+            factura.tipoDocumento = obj.Valor("Tipodoc");
+            factura.numDocumento = obj.Valor("NumDoc");
+
+            //Console.WriteLine("objecto: " + obj.Valor("DataDoc"));
+
+            if (obj.Valor("DataDoc") != null)
+                factura.dataDocumento = obj.Valor("DataDoc");
+            if (obj.Valor("DataVenc") != null)
+                factura.dataVencimento = obj.Valor("DataVenc");
+            // if (obj.Valor("DataLiq") != null)
+            //     factura.dataLiquidacao = obj.Valor("DataLiq");
+
+            factura.valorTotal = obj.Valor("ValorTotal");
+            // if (obj.Valor("ValorDesconto") != null)
+            // factura.valorDesconto = obj.Valor("ValorDesconto");
+            factura.modoPagamento = obj.Valor("ModoPag");
+            factura.condPagamento = obj.Valor("CondPag");
+            factura.moeda = obj.Valor("Moeda");
+            factura.totalIva = obj.Valor("TotalIva");
+
+            return factura;
+        }
+
+        public static List<Model.Factura> ListaFacturas()
+        {
+
+            StdBELista objList;
+            Model.Factura factura = new Model.Factura();
+            List<Model.Factura> listaFacturas = new List<Model.Factura>();
+
+            if (PriEngine.InitializeCompany(SINFDashboard360.Properties.Settings.Default.Company.Trim(), SINFDashboard360.Properties.Settings.Default.User.Trim(), SINFDashboard360.Properties.Settings.Default.Password.Trim()) == true)
+            {
+                objList = PriEngine.Engine.Consulta("SELECT Entidade, TipoDoc, NumDoc, DataDoc, DataLiq, DataVenc, ValorTotal, ValorDesconto, ModoPag, CondPag, Moeda, TotalIva FROM Historico WHERE TipoDoc = 'FA'");
+                while (!objList.NoFim())
+                {
+                    listaFacturas.Add(parseFacturaObj(objList));
+                    objList.Seguinte();
+                }
+                return listaFacturas;
+            }
+            else return null;
+        }
+
+
+        #endregion Factura
+    
     }
 }
