@@ -11,7 +11,8 @@ namespace SINFDashboard360.Models
         public string product_id;
         public string description;
         public double price;
-        public List<Produto> components = null;
+        public string category_id;
+        //public List<Produto> components = null;
 
         public static List<Produto> getListaProdutos() {
 
@@ -22,8 +23,6 @@ namespace SINFDashboard360.Models
             if (Lib_Primavera.PriEngine.InitializeCompany(SINFDashboard360.Properties.Settings.Default.Company.Trim(), SINFDashboard360.Properties.Settings.Default.User.Trim(), SINFDashboard360.Properties.Settings.Default.Password.Trim()) == true)
             {
 
-                //objList = PriEngine.Engine.Comercial.Clientes.LstClientes();
-
                 objList = Lib_Primavera.PriEngine.Engine.Consulta("SELECT * FROM Artigo, ArtigoMoeda WHERE Artigo.Artigo = ArtigoMoeda.Artigo");
 
 
@@ -33,7 +32,8 @@ namespace SINFDashboard360.Models
                     {
                         product_id = objList.Valor("Artigo"),
                         description = objList.Valor("Descricao"),
-                        price = objList.Valor("PVP1")
+                        price = objList.Valor("PVP1"),
+                        category_id = objList.Valor("Familia")
                     });
                     objList.Seguinte();
 
@@ -100,7 +100,8 @@ namespace SINFDashboard360.Models
                         product_id = objList.Valor("Artigo"),
                         description = objList.Valor("Descricao"),
                         price = objList.Valor("PVP1"),
-                        components = Produto.getComponentesDoProdutoPeloId(id)
+                        category_id = objList.Valor("Familia"),
+                        //components = Produto.getComponentesDoProdutoPeloId(id)
                     };
                 }
 

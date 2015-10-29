@@ -10,7 +10,7 @@ namespace SINFDashboard360.Controllers
     public class DepartmentsController : ApiController
     {
         // GET api/department
-        public IEnumerable<Object> Get()
+        public IEnumerable<Models.Departamento> Get()
         {
             return Models.Departamento.getListaDepartamentos();
         }

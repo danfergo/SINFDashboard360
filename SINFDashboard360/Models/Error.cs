@@ -5,7 +5,7 @@ using System.Web;
 
 namespace SINFDashboard360.Models
 {
-    public class Error
+    public class Error: Exception
     {
         public string error = "";
 

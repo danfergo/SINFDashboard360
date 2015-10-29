@@ -10,9 +10,9 @@ namespace SINFDashboard360.Controllers
     public class ProductCategoriesController : ApiController
     {
         // GET api/productcategories
-        public IEnumerable<string> Get()
+        public IEnumerable<Models.Category> Get()
         {
-            return new string[] { "value1", "value2" };
+            return Models.Category.getCategories();
         }
 
     }

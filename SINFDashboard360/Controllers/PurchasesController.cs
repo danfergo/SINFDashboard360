@@ -19,7 +19,7 @@ namespace SINFDashboard360.Controllers
     {
 
 
-        public Object Get(String min_date, String max_date)
+        public IEnumerable<DocCompra> Get(String min_date, String max_date)
         {
 
             System.Diagnostics.Debug.WriteLine("--------------------------------");
@@ -47,7 +47,7 @@ namespace SINFDashboard360.Controllers
             }
             catch (Exception e)
             {
-                return new Error("Bad date format. Error: " + e + ";");
+                return null;//new Error("Bad date format. Error: " + e + ";");
             }
 
             return Purchases.queryPurchasesByDate(min_date_s, max_date_s);
@@ -71,26 +71,5 @@ namespace SINFDashboard360.Controllers
         }
         */
 
-
-        public HttpResponseMessage Post(DocCompra dc)
-        {
-            RespostaErro erro = new RespostaErro();
-            erro = PriIntegration.VGR_New(dc);
-
-            if (erro.Erro == 0)
-            {
-                var response = Request.CreateResponse(
-                   HttpStatusCode.Created, dc.id);
-                string uri = Url.Link("DefaultApi", new { DocId = dc.id });
-                response.Headers.Location = new Uri(uri);
-                return response;
-            }
-
-            else
-            {
-                return Request.CreateResponse(HttpStatusCode.BadRequest);
-            }
-
-        }
     }
 }

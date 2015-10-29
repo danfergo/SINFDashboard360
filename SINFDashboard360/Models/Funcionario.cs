@@ -10,6 +10,10 @@ namespace SINFDashboard360.Models
     {
         public string name;
         public string id;
+        public string qualificacao;
+        public string sex;
+        public DateTime birthDate;
+        public double salary;
 
 
         public static List<Funcionario> getListaDepartamentosPeloCodigo(String CodDepartamento)
@@ -33,7 +37,11 @@ namespace SINFDashboard360.Models
                     listFuncionarios.Add(new Funcionario
                     {
                         id = objList.Valor("Codigo"),
-                        name = objList.Valor("Nome")
+                        name = objList.Valor("Nome"),
+                        birthDate = objList.Valor("DataNascimento"),
+                        sex = objList.Valor("Sexo"),
+                        qualificacao = objList.Valor("Qualificacao"),
+                        salary = objList.Valor("VencimentoMensal"),
                     });
                     objList.Seguinte();
 
