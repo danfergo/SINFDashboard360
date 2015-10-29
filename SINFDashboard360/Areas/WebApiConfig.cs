@@ -14,6 +14,13 @@ namespace SINFDashboard360
 
         public static void Register(HttpConfiguration config)
         {
+
+            config.Routes.MapHttpRoute(
+                name: "ClientInvoicesApi",
+                routeTemplate: "api/clients/{id}/invoices",
+                defaults: new { id = RouteParameter.Optional, controller = "Clients", action = "clientInvoices" }
+            );
+
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",
