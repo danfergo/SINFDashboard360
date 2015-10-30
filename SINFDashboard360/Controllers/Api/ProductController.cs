@@ -7,12 +7,13 @@ using System.Web.Http;
 
 namespace SINFDashboard360.Controllers
 {
-    public class DepartmentsController : ApiController
+    public class ProductController : ApiController
     {
-        // GET api/department
-        public IEnumerable<Models.Departamento> Get()
+        // GET api/product/5
+        public Models.Produto Get(String id)
         {
-            return Models.Departamento.getListaDepartamentos();
+            return Pri_Bridge.Products.getProdutoPeloId(id);
         }
+
     }
 }

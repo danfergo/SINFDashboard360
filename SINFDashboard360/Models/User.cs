@@ -9,13 +9,10 @@ namespace SINFDashboard360.Models
     {
         public String nome { get; set; }
 
-
         public int idade { get; set; }
         public int id { get; set; }
         public int department_id { get; set; }
         public bool is_admin { get; set; }
-
-
 
     }
 }

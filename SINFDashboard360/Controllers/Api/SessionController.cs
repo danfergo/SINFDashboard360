@@ -46,8 +46,6 @@ namespace SINFDashboard360.Controllers
             }
 
 
-           
-
             return new Error("Session does not exist yet");
         }
 

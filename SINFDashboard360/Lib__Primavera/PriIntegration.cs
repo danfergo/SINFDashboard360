@@ -8,6 +8,7 @@ using Interop.StdBE800;
 using Interop.GcpBE800;
 using ADODB;
 using Interop.IGcpBS800;
+using SINFDashboard360.Pri_Bridge.Engine;
 //using Interop.StdBESql800;
 //using Interop.StdBSSql800;
 
@@ -15,7 +16,7 @@ namespace SINFDashboard360.Lib_Primavera
 {
     public class PriIntegration
     {
-        
+        /*
 
         # region Cliente
 
@@ -643,8 +644,8 @@ namespace SINFDashboard360.Lib_Primavera
             else return null;
         }
 
+        
+        #endregion Factura*/
 
-        #endregion Factura
-    
-    }
+    } 
 }

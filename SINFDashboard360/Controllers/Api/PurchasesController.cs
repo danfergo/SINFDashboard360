@@ -21,7 +21,7 @@ namespace SINFDashboard360.Controllers
 
         public IEnumerable<DocCompra> Get(String min_date, String max_date)
         {
-
+            /**
             System.Diagnostics.Debug.WriteLine("--------------------------------");
             System.Diagnostics.Debug.WriteLine("--------------------------------");
             System.Diagnostics.Debug.WriteLine("--------------------------------");
@@ -36,7 +36,7 @@ namespace SINFDashboard360.Controllers
             System.Diagnostics.Debug.WriteLine(max_date);
             System.Diagnostics.Debug.WriteLine("--------------------------------");
             System.Diagnostics.Debug.WriteLine("--------------------------------");
-            System.Diagnostics.Debug.WriteLine("--------------------------------");
+            System.Diagnostics.Debug.WriteLine("--------------------------------"); ~~**/
 
             DateTime min_date_s = new DateTime();
             DateTime max_date_s = new DateTime();
@@ -50,7 +50,7 @@ namespace SINFDashboard360.Controllers
                 return null;//new Error("Bad date format. Error: " + e + ";");
             }
 
-            return Purchases.queryPurchasesByDate(min_date_s, max_date_s);
+            return Pri_Bridge.Purchases.queryPurchasesByDate(min_date_s, max_date_s);
         }
 
         /*

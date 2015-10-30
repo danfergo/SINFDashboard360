@@ -1,41 +1,16 @@
-﻿using System;
+﻿using Interop.StdBE800;
+using SINFDashboard360.Lib_Primavera.Model;
+using SINFDashboard360.Pri_Bridge.Engine;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Web.Http;
-using Interop.ErpBS800;
-using Interop.StdPlatBS800;
-using Interop.StdBE800;
-using Interop.GcpBE800;
-using ADODB;
-using Interop.IGcpBS800;
-using SINFDashboard360.Lib_Primavera.Model;
-using SINFDashboard360.Lib_Primavera;
+using System.Web;
 
-namespace SINFDashboard360.Controllers
+namespace SINFDashboard360.Pri_Bridge
 {
-    public class SalesController : ApiController
+    public class Sales
     {
-        //// GET api/sales
-        //public IEnumerable<string> Get()
-        //{
-        //    return new string[] { "value1", "value2" };
-        //}
-
-        public IEnumerable<DocVenda> Get(string min_date, string max_date)
-        {
-            return ListaFiltradaPorDatas(min_date, max_date);
-        }
-
-        // GET api/sales/5
-        public DocVenda Get(int id)
-        {
-            string numdoc = id.ToString();
-            return Lib_Primavera.PriIntegration.Encomenda_Get(numdoc);
-        }
-
-        private IEnumerable<DocVenda> ListaFiltradaPorDatas(string min_date, string max_date)
+        public static IEnumerable<DocVenda> ListaFiltradaPorDatas(string min_date, string max_date)
         {
 
             DateTime min = DateTime.ParseExact(min_date + " 00:00:00", "dd-MM-yyyy HH:mm:ss", System.Globalization.CultureInfo.InvariantCulture);
@@ -55,7 +30,7 @@ namespace SINFDashboard360.Controllers
 
             if (PriEngine.InitializeCompany(SINFDashboard360.Properties.Settings.Default.Company.Trim(), SINFDashboard360.Properties.Settings.Default.User.Trim(), SINFDashboard360.Properties.Settings.Default.Password.Trim()) == true)
             {
-                objListCab = PriEngine.Engine.Consulta("SELECT id, Entidade, Data, NumDoc, TotalMerc, Serie From CabecDoc where TipoDoc='ECL' and Data between '" + sqlMin + "' and '" + sqlMax + "'");
+                objListCab = PriEngine.Engine.Consulta("SELECT id, Entidade, Data, NumDoc, TotalMerc, Serie From CabecDoc where (TipoDoc='VFA' OR TipoDoc='NC') and Data between '" + sqlMin + "' and '" + sqlMax + "'");
                 while (!objListCab.NoFim())
                 {
                     dv = new DocVenda();
@@ -92,5 +67,6 @@ namespace SINFDashboard360.Controllers
             }
             return listdv;
         }
+
     }
 }
