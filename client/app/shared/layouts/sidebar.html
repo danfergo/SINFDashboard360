@@ -1,0 +1,19 @@
+<div layout="row" layout-fill>
+
+  <md-sidenav dash-sidebar
+              layout="column" class="md-sidenav-left md-whiteframe-z2"
+              md-component-id="left"
+              md-is-locked-open="$mdMedia('gt-md')">
+
+  </md-sidenav>
+
+  <div layout="column" class="relative" layout-fill role="main">
+    <md-content class="md-default-theme"  flex="none" style="height:50px;" hide-gt-md>
+      <md-button ng-click="$mdSidenav('left').toggle()" aria-label="Menu" class="sidenav-left-toggle" >
+        <ng-md-icon icon="menu"></ng-md-icon> MENU
+      </md-button>
+    </md-content>
+    <div class="md-default-theme" flex md-scroll-y layout-fill layout="column" ui-view></div>
+  </div>
+
+</div>

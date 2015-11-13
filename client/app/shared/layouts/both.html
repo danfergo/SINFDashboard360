@@ -1,0 +1,27 @@
+<div layout="row" layout-fill>
+
+  <md-sidenav dash-sidebar
+              layout="column" class="md-sidenav-left md-whiteframe-z2"
+              md-component-id="left"
+              md-is-locked-open="$mdMedia('gt-md')">
+
+  </md-sidenav>
+
+  <div layout="column" class="relative" layout-fill role="main">
+
+    <div class="md-default-theme" flex md-scroll-y layout-fill layout="column">
+      
+
+
+  <md-toolbar flex="none" layout="column" ng-include="'shared/toolbar/toolbar.html'">  </md-toolbar>
+
+
+  <div flex layout="column"  class="md-default-theme" layout-fill ui-view>
+
+  </div>
+
+
+    </div>
+  </div>
+
+</div>

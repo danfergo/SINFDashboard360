@@ -1,0 +1,72 @@
+div.md-default-theme, md-content.md-default-theme {
+  background-color: #eee;
+}
+
+md-card {
+  background-color: #fff;
+}
+
+md-card h2:first-of-type {
+    margin-top: 0;
+}
+
+md-toolbar .md-button.md-default-theme {
+    border-radius: 99%; // round toolbar buttons
+}
+
+h2 {
+  font-weight: 400;
+}
+
+md-content.md-hue-3{
+  color:#fff;
+}
+
+.md-toolbar-tools-bottom {
+  font-size: small;
+  color:#fff;
+}
+
+.md-toolbar-tools-bottom:last-child {
+    opacity: 0.8;
+}
+
+
+md-toolbar:not(.md-hue-1), .md-fab {
+  fill: #fff;
+}
+
+md-sidenav {
+  fill: #737373;
+}
+
+.user-avatar {
+  border-radius: 99%;
+}
+
+body.no-sidenav-left .sidenav-left-toggle {
+  display: none;
+}
+
+body.no-sidenav-left md-sidenav.md-sidenav-left {
+  display: none !important;
+}
+
+body {
+  position: relative;
+  overflow: hidden;
+}
+
+.custom-messages {
+  position: relative;
+  -webkit-order: 4;
+  -ms-flex-order: 4;
+  order: 4;
+  min-height: 24px;
+  color:#f00;
+}
+
+a, a:hover, a:focus, a:active, a:visited{
+  color:#000;
+}
+

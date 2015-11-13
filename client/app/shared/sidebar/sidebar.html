@@ -1,0 +1,46 @@
+<div  layout-fill layout="column">
+
+  <md-toolbar class="md-tall md-hue-2">
+    <span flex></span>
+
+    <div layout="column">
+      <div layout-padding style="text-align: center;">
+        <h1>COMPANY</h1>
+      </div>
+      <div flex></div>
+      <md-content layout="row" class="md-toolbar-tools-bottom inset md-hue-3">
+        <span style="padding-top: 5px;">Olá {{ session.nome }}</span>
+        <span flex></span>
+        <span>
+          <a ui-sref="logout" style="color:#fff;">
+            <ng-md-icon icon="logout" size="24"></ng-md-icon>
+          </a>
+        </span>
+      </md-content>
+    </div>
+  </md-toolbar>
+  <md-content flex="auto">
+
+    <menu-link ng-repeat="item in menu">
+      <a class="md-button md-ink-ripple" ui-sref="{{item.state}}" style="margin:0;border-radius: 0;width:100%;">
+        <md-item-content md-ink-ripple layout="row" layout-align="start center">
+          <div class="inset">
+            <ng-md-icon icon="{{item.icon}}"></ng-md-icon>
+          </div>
+          <div class="inset">{{item.title}}
+          </div>
+        </md-item-content>
+      </a>
+    </menu-link>
+
+
+</md-content>
+
+  <md-divider></md-divider>
+  <footer flex="initial" style="height:150px; max-height:10%;text-align: center;">
+    <md-content layout-padding>
+      designed and developed by<br> Group Q – SINF MIEIC/FEUP
+    </md-content>
+
+  </footer>
+</div>
