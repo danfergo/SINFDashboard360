@@ -37,16 +37,17 @@ namespace SINFDashboard360.Controllers
                 if(reader.Read()){
                     return new User
                     {
+                        nome = "Nome Temporario",
                         id = (int)reader.GetInt32(0)
                     };
                 }
 
                 Delete(); // something unexpected happened: probably user was unregistered -> force logout
-                return new Error("Something unexpected happened");
+                return new SINFDashboard360.Models.Error("Something unexpected happened");
             }
 
 
-            return new Error("Session does not exist yet");
+            return new SINFDashboard360.Models.Error("Session does not exist yet"); 
         }
 
         // PUT api/session - login
