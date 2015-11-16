@@ -2,7 +2,7 @@ div.md-default-theme, md-content.md-default-theme {
   background-color: #eee;
 }
 
-md-card {
+md-card,.md-whiteframe-1dp, .md-whiteframe-15dp{
   background-color: #fff;
 }
 
@@ -70,3 +70,23 @@ a, a:hover, a:focus, a:active, a:visited{
   color:#000;
 }
 
+.department.active{
+  background-color: #fbfbfb;
+}
+
+.department + md-whiteframe {
+  max-height:0;
+  overflow: hidden;
+  padding-top:0;
+  padding-bottom:0;
+  opacity:0;
+   -webkit-transition: all 1s ease; /* Safari */
+    transition: all 1s ease;
+}
+
+.department.active + md-whiteframe {
+  max-height:400px;
+  padding-top:10px;
+  padding-bottom:10px;
+  opacity: 1;
+}

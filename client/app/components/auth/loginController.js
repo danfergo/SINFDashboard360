@@ -8,9 +8,9 @@ controller('loginController', ['$scope', 'Session', '$state', '$mdToast', functi
       $mdToast.show(
         $mdToast.simple()
           .content('Bem-vindo ' + user.nome + '!')
-          .hideDelay(1500)
+          .hideDelay(1000)
       );
-      $state.go('agenda', {}, {reload: true});
+      $state.go('index', {}, {reload: true});
     }, function (error) {
       $scope.errorMessage = error.data.error;
     });

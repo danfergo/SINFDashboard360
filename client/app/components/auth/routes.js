@@ -1,8 +1,13 @@
 angular.module('dash-auth', ['dash-model']).
-controller('logoutController', ['Session', '$state', function (Session, $state) {
+controller('logoutController', ['Session', '$state', '$mdToast', function (Session, $state, $mdToast) {
 
   Session.delete(function () {
-    $state.go('login');
+    $mdToast.show(
+        $mdToast.simple()
+          .content('Até breve!')
+          .hideDelay(1000)
+      );
+    $state.go('index');
   });
 
 }]).

@@ -4,7 +4,6 @@ angular.module('amep')
       .defineRole('user', function (stateParams) {
         var deferred = $q.defer();
         Session.get(function (data) {
-
           if (data.nome) {
             deferred.resolve(); // Session exists , we are logged in :)
           } else {
