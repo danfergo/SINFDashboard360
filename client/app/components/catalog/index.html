@@ -1,1 +1,29 @@
-catalog
+<div ng-controller="catalogController as catalog" ng-cloack>
+
+<md-content>
+<!--<md-virtual-repeat-container id="vertical-container">
+<div md-virtual-repeat="product in catalog.infiniteItems" md-on-demand
+          class="repeated-item" flex>
+        <img ng-src="{{product.image}}?{{$index}}" class="md-avatar" alt="{{product.name}}" />
+          <h3>{{ product.description }}</h3>
+          <h4>{{ product.price | currency:'€':2}}</h4>
+          <p>{{IdentifyCategory(product.category_id)}}</p>
+          <p>{{VerifyStock(product)}}</p>
+      </div>
+</md-virtual-repeat-container> -->
+    <md-list>
+      <md-list-item class="md-3-line" ng-repeat="product in products">
+        <img ng-src="{{product.image}}?{{$index}}" class="md-avatar" alt="{{product.name}}" />
+        <div class="md-list-item-text" layout="column">
+          <h3>{{ product.description }}</h3>
+          <h4>{{ product.price | currency:'€':2}}</h4>
+          <p>{{IdentifyCategory(product.category_id)}}</p>
+          <p>{{VerifyStock(product)}}</p>
+        </div>
+      </md-list-item>
+      <md-divider ></md-divider>
+    </md-list>
+  </md-content>
+
+
+  </div>

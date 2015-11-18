@@ -30,7 +30,9 @@ namespace SINFDashboard360.Pri_Bridge
                         product_id = objList.Valor("Artigo"),
                         description = objList.Valor("Descricao"),
                         price = objList.Valor("PVP1"),
-                        category_id = objList.Valor("Familia")
+                        category_id = objList.Valor("Familia"),
+                        stock = objList.Valor("STKActual"),
+                        marca = objList.Valor("Marca")
                     });
                     objList.Seguinte();
 

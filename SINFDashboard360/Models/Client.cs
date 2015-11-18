@@ -12,5 +12,7 @@ namespace SINFDashboard360.Models
         public string currency;
         public string tax_number;
         public string address;
+        public string language;
+        public string phone;
     }
 }
