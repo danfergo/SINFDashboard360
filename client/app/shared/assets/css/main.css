@@ -54,6 +54,7 @@ body.no-sidenav-left md-sidenav.md-sidenav-left {
 
 body {
   position: relative;
+  overflow:hidden;
 }
 
 .custom-messages {
@@ -89,6 +90,11 @@ a, a:hover, a:focus, a:active, a:visited{
   padding-bottom:10px;
   opacity: 1;
 }
+
+.md-whiteframe-2dp{
+  background:#fff;
+}
+
 
 /*testing virtual slider*/
 /*

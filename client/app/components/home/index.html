@@ -1,6 +1,6 @@
 <div layout="row" layout-wrap>
-	<div flex="33"  layout-padding>
-		<div class="md-whiteframe-2dp" layout-padding>
+	<div flex="33"  layout-padding  layout="column">
+		<div class="md-whiteframe-2dp" layout-padding flex="auto" layout="column">
 			<h3 class="md-title">Compras e vendas</h3>
 			<canvas id="line" class="chart chart-line" chart-data="purchasesNsalesValues"
 			  chart-labels="months" chart-legend="true" chart-series="purchasesNsales">
@@ -103,9 +103,6 @@
 </div>
 
 <style>
-.md-whiteframe-2dp{
-	background:#fff;
-}
 .md-whiteframe-2dp h3.md-title{
 	margin:0;
 	padding:0;

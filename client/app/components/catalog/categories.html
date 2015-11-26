@@ -1,0 +1,20 @@
+<div layout="row" layout-wrap>
+
+
+
+ <div flex="100" layout="row" layout-align="center center" ng-if="!categories">
+    <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+  </div>
+
+
+	<div flex="33"  layout-padding layout="column" ng-repeat="category in categories">
+		<div class="md-whiteframe-2dp" layout="column" layout-padding flex="auto"
+			style="cursor:pointer;"
+			ui-sref="catalogCategory({categoryId: category.category_id})">
+			<h3 class="md-title">{{category.description}}</h3>
+		</div>
+	</div>
+
+</div>
+
+  

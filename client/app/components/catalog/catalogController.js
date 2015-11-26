@@ -1,13 +1,15 @@
 angular.module('dash-catalog').
-controller('catalogController', ['$scope', 'Product', 'ProductCategory', function ($scope, Product, ProductCategory) {
-		$scope.$parent.pageTitle = "Products Catalog";
-		$scope.products = null;
-		$scope.categories = null;
+controller('catalogController', ['$scope', 'Product', 'ProductCategory', '$stateParams', function ($scope, Product, ProductCategory, $stateParams) {
+	$scope.$parent.pageTitle = "Products Catalog";
+	$scope.products = null;
+	$scope.categories = null;
+	$scope.includeOutOfStock = false;
 
-		Product.query(function(data){
+	Product.query({category_id:$stateParams.category_id},function(data){
 		$scope.products = data;
 	});
-		ProductCategory.query(function(data){
+
+	ProductCategory.query(function(data){
 		$scope.categories = data;
 	});
 
@@ -53,7 +55,7 @@ controller('catalogController', ['$scope', 'Product', 'ProductCategory', functio
 		}
 
 		$scope.IdentifyCategory = function(category_id){
-			var length = $scope.categories.length;
+			var length = $scope.categories ? $scope.categories.length : 0;
 			for(var i = 0; i<length; i++)
 			{
 				if($scope.categories[i].category_id === category_id)
