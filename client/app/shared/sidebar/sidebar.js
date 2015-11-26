@@ -1,46 +1,41 @@
 angular.module('dash-sidebar', []).
-controller('SidebarController', ['$scope', 'Session', '$mdSidenav', function ($scope, Session, $mdSidenav) {
+controller('SidebarController', ['$scope', 'Session', '$mdSidenav',function ($scope, Session, $mdSidenav) {
   $scope.$mdSidenav = $mdSidenav;
-  $scope.session = false;
-
-  Session.get(function (data) {
-    $scope.session = data; // Session exists , we are logged in :)
-  })
 
   $scope.menu = [
     {
       state: 'index',
-      title: 'Home',
+      title: 'Início',
       icon: 'dashboard'
     },
     {
       state: 'purchases',
-      title: 'Purchases',
+      title: 'Compras',
       icon: 'shopping_cart'
     },
     {
       state: 'catalog',
-      title: 'Products Catalog',
+      title: 'Catalogo',
       icon: 'shop'
     },
     {
       state: 'humanResources',
-      title: 'Human Resources',
+      title: 'Recursos Humanos',
       icon: 'assignment_ind'
     },
     {
       state: 'sales',
-      title: 'Sales',
+      title: 'Vendas',
       icon: 'receipt'
     },
     {
       state: 'accounting',
-      title: 'Accounting',
+      title: 'Contabilidade',
       icon: 'assessment'
     },
     {
       state: 'clients',
-      title: 'Clients',
+      title: 'Clientes',
       icon: 'face'
     }
 
@@ -48,25 +43,26 @@ controller('SidebarController', ['$scope', 'Session', '$mdSidenav', function ($s
 
 }]).
 directive('dashSidebar', ['Session', '$rootScope', function (Session) {
-  function link(scope) {
+ /*function link(scope) {
 
     scope.$watch(function () {
       return Session.getSessionInCache();
     }, function (value) {
-      if (value && value[0] == 200) { // resolved
+      if (value && value[0] == 200) {  resolved
         $('body').removeClass('no-sidenav-left');
-      } else { //rejected
+      } else { rejected
         $('body').addClass('no-sidenav-left');
         scope.$mdSidenav('left').close();
       }
     });
-  }
+  }*/
 
   return {
     restrict: 'A',  // Forces the directive to be an attribute.
-    link: link,
+    //link: link,
     controller: 'SidebarController',
-    templateUrl: '/shared/sidebar/sidebar.html'
+    templateUrl: '/shared/sidebar/sidebar.html',
+    scope: false
   };
 }]);
 

@@ -1,15 +1,16 @@
 <div  layout-fill layout="column">
 
-  <md-toolbar class="md-tall md-hue-2">
+  <md-toolbar class="md-tall md-hue-2" style="height:140px;max-height:140px;">
     <span flex></span>
 
     <div layout="column">
-      <div layout-padding style="text-align: center;">
-        <h1>COMPANY</h1>
+      <div layout-padding style="text-align: center;" >
+        <h1 style="margin-top:10px;">Loja X</h1>
+        <div style="font-size:12px;">A casa dos computadores</div>
       </div>
       <div flex></div>
       <md-content layout="row" class="md-toolbar-tools-bottom inset md-hue-3">
-        <span style="padding-top: 5px;">Olá {{ session.nome }}</span>
+        <span style="padding-top: 5px;">Olá {{ currentSession.nome }}</span>
         <span flex></span>
         <span>
           <a ui-sref="logout" style="color:#fff;">
@@ -39,7 +40,7 @@
   <md-divider></md-divider>
   <footer flex="initial" style="height:150px; max-height:10%;text-align: center;">
     <md-content layout-padding>
-      designed and developed by<br> Group Q – SINF MIEIC/FEUP
+      desenhado e desenvolvido por<br> Grupo Q – SINF MIEIC/FEUP 
     </md-content>
 
   </footer>

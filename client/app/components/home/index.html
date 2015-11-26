@@ -1,1 +1,166 @@
-klasdjasdlkjindex.html
+<div layout="row" layout-wrap>
+	<div flex="33"  layout-padding>
+		<div class="md-whiteframe-2dp" layout-padding>
+			<h3 class="md-title">Compras e vendas</h3>
+			<canvas id="line" class="chart chart-line" chart-data="purchasesNsalesValues"
+			  chart-labels="months" chart-legend="true" chart-series="purchasesNsales">
+			</canvas> 
+		</div>
+	</div>
+
+	<div flex="33" layout-padding layout="column">
+		<div class="md-whiteframe-2dp" layout-padding flex="auto" layout="column">
+			<h3 class="md-title">Ontem</h3>
+			<p class="huge-data" flex="auto">200<small>€</small></p>
+			<div layout="row" flex="none">
+				<div>
+				FATURADO: 1000€
+				</div>
+				<div flex></div>
+				<div>
+					<ng-md-icon icon="trending_down"></ng-md-icon> 10%	
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+	<div flex="33"  layout-padding layout="column">
+		<div class="md-whiteframe-2dp" layout-padding flex="auto">
+			<h3 class="md-title">Vendas por categoria</h3>
+			<canvas id="polar-area" class="chart chart-polar-area"  style="margin:20px auto 0;"
+			  chart-data="salesPerCategory" chart-labels="categories">
+			</canvas> 
+		</div>
+	</div>
+
+	<div flex="33"  layout-padding layout="column">
+		<div class="md-whiteframe-2dp" layout="column" layout-padding flex="auto">
+			<h3 class="md-title">Últimas compras</h3>
+			<div flex></div>
+			<div class="div-table stripped" flex="none">
+				<div layout="row">
+					<div flex>Titulo do produto</div>
+					<div flex="none">10€</div>
+				</div>
+				<div layout="row">
+					<div flex>Titulo do produto</div>
+					<div flex="none">10€</div>
+				</div>
+				<div layout="row">
+					<div flex>Titulo do produto</div>
+					<div flex="none">10€</div>
+				</div>
+				<div layout="row">
+					<div flex>Titulo do produto</div>
+					<div flex="none">10€</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div flex="33" layout-padding layout="column" >
+		<div class="md-whiteframe-2dp" layout-padding flex="auto" layout="column" >
+			<h3 class="md-title" flex="none">Este mês</h3>
+			<p class="huge-data" flex="auto">200<small>€</small></p>
+			<div layout="row" flex="none">
+				<div>
+				JÁ FATURADO: 10000€
+				</div>
+				<div flex></div>
+				<div>
+					<ng-md-icon icon="trending_down"></ng-md-icon> 10%	
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div flex="33"  layout-padding layout="column">
+		<div class="md-whiteframe-2dp" layout="column" layout-padding flex="auto">
+			<h3 class="md-title">Eficiência</h3>
+			<div flex></div>
+			<div class="div-table" flex="none">
+				<div layout="row" class="large-data">
+					<div flex></div>
+					<div flex="none"  class="data">20 dias</div>
+					<div flex class="legend"> para<br>pagar</div>
+				</div>
+				<div layout="row" class="large-data">
+					<div flex></div>
+					<div flex="none" class="data">21 dias</div>
+					<div flex class="legend">em<br>stock</div>
+				</div>
+				<div layout="row" class="large-data">
+					<div flex></div>
+					<div flex="none" class="data">10 dias</div>
+					<div flex class="legend">para<br>receber</div>
+				</div>
+			</div>
+			<div flex></div>
+		</div>
+	</div>
+
+</div>
+
+<style>
+.md-whiteframe-2dp{
+	background:#fff;
+}
+.md-whiteframe-2dp h3.md-title{
+	margin:0;
+	padding:0;
+}
+
+.md-whiteframe-2dp .line-legend span{
+	height:10px;
+	width:10px;
+	margin:5px 0 5px 12px;
+}
+
+.huge-data {
+	text-align:center;
+	font-size:72px;
+	margin:20px auto;
+}
+
+.huge-data small{
+	font-size:50px;
+}
+
+div.large-data.layout-row {
+	padding:7px 0;
+}
+
+.large-data .data{
+	font-size:36px;
+	font-weight:bold;
+	line-height:36px;
+}
+
+.large-data .legend{
+	padding-left:10px;
+	padding-top:5px;
+	line-height:15px;
+}
+
+/** begin div-table **/
+.div-table > div {
+	padding:5px;
+	margin:0 5px;
+}
+
+.div-table.stripped > div{
+	border-bottom:1px solid #e0e0e0;
+}
+
+.div-table.stripped > div:last-child{
+	border-bottom: none;
+}
+
+.div-table.stripped > div:nth-child(odd){
+	background:#eee;
+}
+
+/** end div-table **/
+
+</style>

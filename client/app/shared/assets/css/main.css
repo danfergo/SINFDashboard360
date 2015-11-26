@@ -54,7 +54,6 @@ body.no-sidenav-left md-sidenav.md-sidenav-left {
 
 body {
   position: relative;
-  overflow: hidden;
 }
 
 .custom-messages {

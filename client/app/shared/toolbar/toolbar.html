@@ -2,8 +2,8 @@
     <md-button ng-click="$mdSidenav('left').toggle()" aria-label="Menu" class="sidenav-left-toggle" hide-gt-md flex="none" style="min-width:0;margin-right:0;">
         <ng-md-icon icon="menu"></ng-md-icon>
       </md-button>
-  <md-button flex="none" href="/" style="font-size:26px;margin-left:0;" ng-if="!pageTitle">COMPANY</md-button>
+  <md-button flex="none" href="/" style="font-size:26px;margin-left:0;" ng-if="!pageTitle">Loja X</md-button>
   <span ng-if="pageTitle">{{pageTitle}}</span>
   <span flex></span>
-  <md-button flex="none" ui-sref="login" class="md-raised">Iniciar sessão</md-button>
+  <md-button flex="none" ui-sref="login" class="md-raised" ng-if="!currentSession.id">Iniciar sessão</md-button>
 </div>

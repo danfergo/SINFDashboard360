@@ -1,6 +1,6 @@
 angular.module('amep',
   [
-    'ui.router', 'ngMaterial', 'ngMdIcons', 'permission',
+    'ui.router', 'ngMaterial', 'ngMdIcons', 'permission', 'chart.js',
     'dash-layouts', 
     'dash-home', 'dash-accounting', 'dash-catalog','dash-clients',
     'dash-humanResources','dash-purchases','dash-sales',
