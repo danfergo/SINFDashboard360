@@ -1,31 +1,37 @@
-<div layout="column">
-<div ng-repeat="client in clients" >
+ <div layout="row" layout-wrap>
 
- <md-whiteframe class="department md-whiteframe-1dp"  
- layout="column" ng-click="toggle($event)"
- layout-margin layout-padding>
- 	<h3>{{client.name}}</h3>
- 	<h3>{{client.address}}</h3>
-  </md-whiteframe> 
 
-  <md-whiteframe class="md-whiteframe-15dp" 
- layout="column"
- layout-margin layout-padding>
-	 
-	<md-list>
-	  <md-list-item class="md-2-line">
-	    <p>Número de contribuinte: {{client.tax_number}}</p>
-	    <p>Moeda: {{client.currency}}</p>
-	    <p>Telefone: {{client.phone}}</p>
-	    <p>Idioma: {{client.language}}</p>
-	    <md-divider ng-if="!$last"></md-divider>
 
-	  </md-list-item>
-	</md-list>
 
- </md-whiteframe>
+<div flex="100"  layout-padding layout>
+    <div class="md-whiteframe-2dp" layout="row" layout-padding flex="auto">
+        <md-input-container flex>
+            <label style="display:none;">&nbsp;</label>
+            <input ng-model="searchText" placeholder="Procurar cliente">
+        </md-input-container>
+        
+    </div>
+
+  </div>
+
+  
+ <div flex="100" layout="row" layout-align="center center" ng-if="!clients">
+    <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+  </div>
+
+	<div flex="50"  layout-padding layout="column" ng-repeat="client in clients | filter:searchText">
+		<div class="md-whiteframe-2dp" layout="column" layout-padding flex="auto">
+		 	<h3 class="md-title">{{client.name}}</h3>
+			<p>{{client.address}}</p>
+			<br>
+			<p ng-if="client.tax_number">N. contribuinte: {{client.tax_number}}</p>
+		    <p ng-if="client.currency">Moeda: {{client.currency}}</p>
+		    <p ng-if="client.phone">Telefone: {{client.phone}}</p>
+		    <p ng-if="client.language">Idioma: {{client.language}}</p>
+
+		</div>
+	</div>
 
 </div>
 
-
-  </div>
+  

@@ -1,13 +1,14 @@
 angular.module('dash-clients').
 controller('clientsController', ['$scope','Client', function ($scope, Client) {
-		$scope.$parent.pageTitle = "Clients";
-		$scope.clients = null;
+	$scope.$parent.pageTitle = "Clientes";
+	$scope.clients = null;
 
-		Client.query(function(data){
+	Client.query(function(data){
 		$scope.clients = data;
 	});
 		
-		$scope.toggle = function(event){
+		/*
+	$scope.toggle = function(event){
 		$(event.currentTarget).toggleClass('active');
-	}
+	}*/
 }]);

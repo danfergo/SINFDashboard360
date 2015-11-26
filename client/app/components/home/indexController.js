@@ -1,6 +1,6 @@
 angular.module('dash-home').
 controller('indexController', ['$scope', function ($scope) {
-		$scope.$parent.pageTitle = "Home";
+		$scope.$parent.pageTitle = "Início";
 
 
 	$scope.months = ["jan", "feb", "mar", "abr", "may", "jun", "jul"];

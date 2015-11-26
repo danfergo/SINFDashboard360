@@ -1,6 +1,6 @@
 angular.module('dash-catalog').
 controller('catalogController', ['$scope', 'Product', 'ProductCategory', '$stateParams', function ($scope, Product, ProductCategory, $stateParams) {
-	$scope.$parent.pageTitle = "Products Catalog";
+	$scope.$parent.pageTitle = "Catálogo";
 	$scope.products = null;
 	$scope.categories = null;
 	$scope.includeOutOfStock = false;

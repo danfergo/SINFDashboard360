@@ -1,6 +1,6 @@
 angular.module('dash-humanResources').
 controller('humanResourcesController', ['$scope', 'Deparment', function ($scope, Deparment) {
-	$scope.$parent.pageTitle = "Human Resources";
+	$scope.$parent.pageTitle = "Recursos Humanos";
 	$scope.departments = null;
 
 	Deparment.query(function(data){
