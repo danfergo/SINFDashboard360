@@ -5,7 +5,7 @@ controller('catalogController', ['$scope', 'Product', 'ProductCategory', '$state
 	$scope.categories = null;
 	$scope.includeOutOfStock = false;
 
-	Product.query({category_id:$stateParams.category_id},function(data){
+	Product.get({id:$stateParams.categoryId},function(data){
 		$scope.products = data;
 	});
 
