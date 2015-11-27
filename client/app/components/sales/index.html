@@ -1,15 +1,17 @@
  
 <div layout="row" layout-wrap>
 
-<!-- <div flex="50"  layout-padding layout="column">
+<div flex="25"></div>
+ <div flex="50"  layout-padding layout="column">
 	<div class="md-whiteframe-2dp" layout="column" layout-padding flex="auto">
-    <h3 class="md-title">Top compradores</h3>
-		<canvas id="bar" class="chart chart-bar"
-		  chart-data="data" chart-labels="labels">
-		</canvas>
+    <h3 class="md-title">Evolução de vendas por categoria</h3>
+		<canvas id="line" class="chart chart-line" chart-data="purchasesPerCategory"
+		  chart-labels="months" chart-legend="true" chart-series="categories" >
+		</canvas> 
 	</div>
 </div>
-
+<div flex="25"></div>
+<!--
 <div flex="50"  layout-padding layout="column">
 	<div class="md-whiteframe-2dp" layout="column" layout-padding flex="auto">
     <h3 class="md-title">Top devedores</h3>
@@ -17,8 +19,8 @@
 		  chart-data="data" chart-labels="labels">
 		</canvas>
 	</div>
-</div> -->
-
+</div> 
+-->
 
 <div flex="100"  layout-padding layout>
     <div class="md-whiteframe-2dp" layout="row" layout-padding flex="auto">

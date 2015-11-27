@@ -24,4 +24,13 @@ controller('salesController', ['$scope','Sale','$filter', function ($scope, Sale
 	$scope.toggle = function(event){
 		$(event.currentTarget).toggleClass('active');
 	}
+	$scope.months = ["janeiro", "fevereiro", "março", "abril", "maio", "junho", "julho"];
+  $scope.categories = ['Computadores', 'Ratos', 'CDROMs'];
+  $scope.purchasesPerCategory = [
+    [65, 59, 80, 81, 56, 55, 40],
+	[28, 48, 40, 19, 86, 27, 90],
+	[10, 22, 35, 60, 55, 42, 30],
+  ];
+
+
 }]);
