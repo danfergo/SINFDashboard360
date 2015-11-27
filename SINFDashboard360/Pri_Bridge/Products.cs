@@ -45,21 +45,17 @@ namespace SINFDashboard360.Pri_Bridge
 
         }
 
-
-
-        public static List<Produto> getComponentesDoProdutoPeloId(String id)
+        public static List<Produto> getListaProdutosByCategory(string category)
         {
-
 
             StdBELista objList;
 
             List<Produto> listProdutos = new List<Produto>();
 
-            if (PriEngine.InitializeCompany(SINFDashboard360.Properties.Settings.Default.Company.Trim(), SINFDashboard360.Properties.Settings.Default.User.Trim(), SINFDashboard360.Properties.Settings.Default.Password.Trim()) == true)
+            if (Pri_Bridge.Engine.PriEngine.InitializeCompany(SINFDashboard360.Properties.Settings.Default.Company.Trim(), SINFDashboard360.Properties.Settings.Default.User.Trim(), SINFDashboard360.Properties.Settings.Default.Password.Trim()) == true)
             {
 
-                
-                objList = PriEngine.Engine.Consulta("SELECT * FROM ComponentesArtigos,Artigo,ArtigoMoeda WHERE ComponentesArtigos.ArtigoComposto = '" + id + "' AND ComponentesArtigos.Componente = Artigo.Artigo AND ArtigoMoeda.Artigo  = Artigo.Artigo");
+                objList = Pri_Bridge.Engine.PriEngine.Engine.Consulta("SELECT Artigo.Artigo, Artigo.Descricao,PVP1,STKActual,Marca FROM Artigo, ArtigoMoeda WHERE Artigo.Artigo = ArtigoMoeda.Artigo and Artigo.Familia='"+category+"'");
 
 
                 while (!objList.NoFim())
@@ -68,7 +64,10 @@ namespace SINFDashboard360.Pri_Bridge
                     {
                         product_id = objList.Valor("Artigo"),
                         description = objList.Valor("Descricao"),
-                        price = objList.Valor("PVP1")
+                        price = objList.Valor("PVP1"),
+                        category_id = category,
+                        stock = objList.Valor("STKActual"),
+                        marca = objList.Valor("Marca")
                     });
                     objList.Seguinte();
 
@@ -78,38 +77,74 @@ namespace SINFDashboard360.Pri_Bridge
             }
             else
                 return null;
-        }
-
-
-
-        public static Produto getProdutoPeloId(String id)
-        {
-
-            StdBELista objList;
-
-            if (PriEngine.InitializeCompany(SINFDashboard360.Properties.Settings.Default.Company.Trim(), SINFDashboard360.Properties.Settings.Default.User.Trim(), SINFDashboard360.Properties.Settings.Default.Password.Trim()) == true)
-            {
-
-                objList = PriEngine.Engine.Consulta("SELECT * FROM Artigo,ArtigoMoeda WHERE Artigo.Artigo='" + id + "' AND ArtigoMoeda.Artigo = Artigo.Artigo");
-
-
-                if (!objList.NoFim())
-                {
-                    return new Produto
-                    {
-                        product_id = objList.Valor("Artigo"),
-                        description = objList.Valor("Descricao"),
-                        price = objList.Valor("PVP1"),
-                        category_id = objList.Valor("Familia"),
-                        //components = Produto.getComponentesDoProdutoPeloId(id)
-                    };
-                }
-
-                return null;
-            }
-            else
-                return null;
 
         }
+
+
+
+        //public static List<Produto> getComponentesDoProdutoPeloId(String id)
+        //{
+
+
+        //    StdBELista objList;
+
+        //    List<Produto> listProdutos = new List<Produto>();
+
+        //    if (PriEngine.InitializeCompany(SINFDashboard360.Properties.Settings.Default.Company.Trim(), SINFDashboard360.Properties.Settings.Default.User.Trim(), SINFDashboard360.Properties.Settings.Default.Password.Trim()) == true)
+        //    {
+
+                
+        //        objList = PriEngine.Engine.Consulta("SELECT * FROM ComponentesArtigos,Artigo,ArtigoMoeda WHERE ComponentesArtigos.ArtigoComposto = '" + id + "' AND ComponentesArtigos.Componente = Artigo.Artigo AND ArtigoMoeda.Artigo  = Artigo.Artigo");
+
+
+        //        while (!objList.NoFim())
+        //        {
+        //            listProdutos.Add(new Produto
+        //            {
+        //                product_id = objList.Valor("Artigo"),
+        //                description = objList.Valor("Descricao"),
+        //                price = objList.Valor("PVP1")
+        //            });
+        //            objList.Seguinte();
+
+        //        }
+
+        //        return listProdutos;
+        //    }
+        //    else
+        //        return null;
+        //}
+
+
+
+        //public static Produto getProdutoPeloId(String id)
+        //{
+
+        //    StdBELista objList;
+
+        //    if (PriEngine.InitializeCompany(SINFDashboard360.Properties.Settings.Default.Company.Trim(), SINFDashboard360.Properties.Settings.Default.User.Trim(), SINFDashboard360.Properties.Settings.Default.Password.Trim()) == true)
+        //    {
+
+        //        objList = PriEngine.Engine.Consulta("SELECT * FROM Artigo,ArtigoMoeda WHERE Artigo.Artigo='" + id + "' AND ArtigoMoeda.Artigo = Artigo.Artigo");
+
+
+        //        if (!objList.NoFim())
+        //        {
+        //            return new Produto
+        //            {
+        //                product_id = objList.Valor("Artigo"),
+        //                description = objList.Valor("Descricao"),
+        //                price = objList.Valor("PVP1"),
+        //                category_id = objList.Valor("Familia"),
+        //                //components = Produto.getComponentesDoProdutoPeloId(id)
+        //            };
+        //        }
+
+        //        return null;
+        //    }
+        //    else
+        //        return null;
+
+        //}
     }
 }

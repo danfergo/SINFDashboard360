@@ -9,11 +9,11 @@ namespace SINFDashboard360.Controllers
 {
     public class ProductController : ApiController
     {
-        // GET api/product/5
-        public Models.Produto Get(String id)
-        {
-            return Pri_Bridge.Products.getProdutoPeloId(id);
-        }
+        //// GET api/product/5
+        //public Models.Produto Get(String id)
+        //{
+        //    return Pri_Bridge.Products.getProdutoPeloId(id);
+        //}
 
     }
 }
