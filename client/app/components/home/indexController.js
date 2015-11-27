@@ -4,6 +4,7 @@ controller('indexController', ['$scope', function ($scope) {
 
 
 	$scope.months = ["jan", "feb", "mar", "abr", "may", "jun", "jul"];
+	
 	$scope.purchasesNsales = ['Compras', 'Vendas'];
 	$scope.purchasesNsalesValues = [
 		[65, 59, 80, 81, 56, 55, 40],
