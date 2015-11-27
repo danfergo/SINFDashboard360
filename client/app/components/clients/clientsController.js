@@ -11,4 +11,12 @@ controller('clientsController', ['$scope','Client', function ($scope, Client) {
 	$scope.toggle = function(event){
 		$(event.currentTarget).toggleClass('active');
 	}*/
+
+  $scope.labels = ['João', 'Pedro', 'Maria', 'Joana', 'António', 'Rui', 'Ricardo'];
+  $scope.series = ['Series A'];
+
+  $scope.data = [
+    [28, 48, 40, 19, 86, 27, 90]
+  ];
+         
 }]);
