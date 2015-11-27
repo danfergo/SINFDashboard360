@@ -85,7 +85,7 @@ a, a:hover, a:focus, a:active, a:visited{
 }
 
 .department.active + md-whiteframe {
-  max-height:400px;
+  max-height:600px;
   padding-top:10px;
   padding-bottom:10px;
   opacity: 1;
