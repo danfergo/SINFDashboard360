@@ -80,7 +80,42 @@ namespace SINFDashboard360.Pri_Bridge
 
         }
 
+        public static List<Produto> getListaProdutosBaixoStock()
+        {
 
+            StdBELista objList;
+
+            List<Produto> listProdutos = new List<Produto>();
+
+            if (Pri_Bridge.Engine.PriEngine.InitializeCompany(SINFDashboard360.Properties.Settings.Default.Company.Trim(), SINFDashboard360.Properties.Settings.Default.User.Trim(), SINFDashboard360.Properties.Settings.Default.Password.Trim()) == true)
+            {
+
+                objList = Pri_Bridge.Engine.PriEngine.Engine.Consulta("SELECT Artigo.Artigo, Artigo.Descricao, ArtigoMoeda.PVP1, Artigo.Familia, Artigo.STKActual, Artigo.STKMinimo, Artigo.STKMaximo, Artigo.Marca FROM Artigo, ArtigoMoeda WHERE Artigo.Artigo = ArtigoMoeda.Artigo AND Artigo.STKActual < Artigo.STKMinimo");
+
+
+                while (!objList.NoFim())
+                {
+                    listProdutos.Add(new Produto
+                    {
+                        product_id = objList.Valor("Artigo"),
+                        description = objList.Valor("Descricao"),
+                        price = objList.Valor("PVP1"),
+                        category_id = objList.Valor("Familia"),
+                        stock = objList.Valor("STKActual"),
+                        stockMin = objList.Valor("STKMinimo"),
+                        stockMax = objList.Valor("STKMaximo"),
+                        marca = objList.Valor("Marca")
+                    });
+                    objList.Seguinte();
+
+                }
+
+                return listProdutos;
+            }
+            else
+                return null;
+
+        }
 
         //public static List<Produto> getComponentesDoProdutoPeloId(String id)
         //{

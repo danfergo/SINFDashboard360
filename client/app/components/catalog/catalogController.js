@@ -48,10 +48,11 @@ controller('catalogController', ['$scope', 'Product', 'ProductCategory', '$state
 	}
 
 		$scope.VerifyStock = function(product){
+			console.log(product.description +" max: " +product.stock + " min:" + product.stockMin)
 			if(product.stock > 0)
-				return "In stock";
+				return "Artigo disponível";
 			else
-				return 0;
+				return "Artigo indisponível";
 		}
 
 		$scope.IdentifyCategory = function(category_id){
@@ -61,6 +62,6 @@ controller('catalogController', ['$scope', 'Product', 'ProductCategory', '$state
 				if($scope.categories[i].category_id === category_id)
 					return $scope.categories[i].description;			
 			}
-			return "No category associated";
+			return "Sem categoria associada";
 		}
 }]);

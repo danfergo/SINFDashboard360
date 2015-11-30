@@ -272,6 +272,7 @@
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\Api\ClientsController.cs" />
     <Compile Include="Controllers\Api\DepartmentsController.cs" />
+    <Compile Include="Controllers\Api\IndexController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\Api\ProductCategoriesController.cs" />
     <Compile Include="Controllers\Api\ProductController.cs" />

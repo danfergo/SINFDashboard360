@@ -14,5 +14,8 @@ namespace SINFDashboard360.Models
         public string sex;
         public DateTime birthDate;
         public double salary;
+        public double subAlimentar;
+        public double subEsp;
+        public double vencimento;
     }
 }

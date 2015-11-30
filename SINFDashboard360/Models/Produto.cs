@@ -13,6 +13,8 @@ namespace SINFDashboard360.Models
         public double price;
         public string category_id;
         public double stock;
+        public double stockMin;
+        public double stockMax;
         public string marca;
         //public List<Produto> components = new List<Produto>();
     }

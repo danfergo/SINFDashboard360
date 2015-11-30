@@ -53,13 +53,14 @@
 
 
   <div flex="50"  layout-padding ng-repeat="product in products | filter:searchText" 
-      ng-if="VerifyStock(product) != 0 || includeOutOfStock"
+      ng-if="VerifyStock(product) =='Artigo disponível' || includeOutOfStock"
       layout>
     <div class="md-whiteframe-2dp" layout="row" layout-padding flex="auto">
     <div flex layout="column">
           <h3 class="md-title">{{ product.description }}</h3>
           <p>{{IdentifyCategory(product.category_id)}}</p>
           <p>{{VerifyStock(product)}}</p>
+          <p ng-if="product.stockMin>product.stock" style="color:red">Stock atual abaixo do mínimo, comprar pelo menos {{product.stockMin-product.stock}}</p>
     </div>
     <div flex="none" layout="column">
         <div flex></div>

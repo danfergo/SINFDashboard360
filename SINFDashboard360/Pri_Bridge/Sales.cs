@@ -30,7 +30,7 @@ namespace SINFDashboard360.Pri_Bridge
 
             if (PriEngine.InitializeCompany(SINFDashboard360.Properties.Settings.Default.Company.Trim(), SINFDashboard360.Properties.Settings.Default.User.Trim(), SINFDashboard360.Properties.Settings.Default.Password.Trim()) == true)
             {
-                objListCab = PriEngine.Engine.Consulta("SELECT id, Entidade, Data, NumDoc, TotalMerc, Serie From CabecDoc where (TipoDoc='VFA' OR TipoDoc='NC') and Data between '" + sqlMin + "' and '" + sqlMax + "'");
+                objListCab = PriEngine.Engine.Consulta("SELECT id, Entidade, Data, NumDoc, TotalMerc, Serie, TipoDoc From CabecDoc where (TipoDoc='VFA' OR TipoDoc='NC') and Data between '" + sqlMin + "' and '" + sqlMax + "'");
                 while (!objListCab.NoFim())
                 {
                     dv = new DocVenda();
@@ -40,6 +40,7 @@ namespace SINFDashboard360.Pri_Bridge
                     dv.Data = objListCab.Valor("Data");
                     dv.TotalMerc = objListCab.Valor("TotalMerc");
                     dv.Serie = objListCab.Valor("Serie");
+                    dv.TipoDoc = objListCab.Valor("TipoDoc");
                     objListLin = PriEngine.Engine.Consulta("SELECT idCabecDoc, Artigo, Descricao, Quantidade, Unidade, PrecUnit, Desconto1, TotalILiquido, PrecoLiquido from LinhasDoc where IdCabecDoc='" + dv.id + "' order By NumLinha");
                     listlindv = new List<LinhaDocVenda>();
 

@@ -34,6 +34,9 @@ namespace SINFDashboard360.Pri_Bridge
                         sex = objList.Valor("Sexo"),
                         qualificacao = objList.Valor("Qualificacao"),
                         salary = objList.Valor("VencimentoMensal"),
+                        subAlimentar =objList.Valor("ValorSubsAlim"),
+                        subEsp = objList.Valor("ValorSubsEsp"),
+                        vencimento = objList.Valor("Vencimento")
                     });
                     objList.Seguinte();
 
