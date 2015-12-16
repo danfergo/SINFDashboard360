@@ -1,7 +1,36 @@
 <div layout="column">
 
+
+
+
+
+
+
  <div layout="row" layout-align="center center" ng-if="!departments">
     <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+  </div>
+
+ <div layout="row" ng-if="departments">
+ 	<div flex="10"></div>
+    <div flex="40"  layout-padding layout="column">
+	<div class="md-whiteframe-2dp" layout="column" layout-padding flex="auto">
+	    <h3 class="md-title">Nº de colaboradores por departamento</h3>
+			<canvas id="pie" class="chart chart-pie"
+				  chart-data="data" chart-labels="labels">
+				</canvas> 
+		</div>
+	</div>
+
+	<div flex="40"  layout-padding layout="column">
+		<div class="md-whiteframe-2dp" layout="column" layout-padding flex="auto">
+	    <h3 class="md-title">Salários por departamento</h3>
+			<canvas id="" class="chart chart-pie"
+			  chart-data="dataSalarios" chart-labels="labels">
+			</canvas> 
+		</div>
+	</div>
+	<div flex="10"></div>
+
   </div>
 
 <div ng-repeat="department in departments" >

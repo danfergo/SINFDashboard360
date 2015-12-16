@@ -114,3 +114,8 @@ a, a:hover, a:focus, a:active, a:visited{
   padding-left: 16px; }
 
 */
+
+
+md-checkbox {
+  margin-bottom: 0!important;
+}

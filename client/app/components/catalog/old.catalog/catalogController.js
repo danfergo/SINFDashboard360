@@ -5,13 +5,12 @@ controller('catalogController', ['$scope', 'Product', 'ProductCategory', '$state
 	$scope.categories = null;
 	$scope.includeOutOfStock = false;
 
-	
+	Product.get({id:$stateParams.categoryId},function(data){
+		$scope.products = data;
+	});
 
 	ProductCategory.query(function(data){
 		$scope.categories = data;
-		Product.get({id:$stateParams.categoryId},function(data){
-			$scope.products = data;
-		});
 	});
 
 		/*this.infiniteItems = {

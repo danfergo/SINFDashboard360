@@ -1,14 +1,12 @@
 <div  layout-fill layout="column">
 
-  <md-toolbar class="md-tall md-hue-2" style="height:140px;max-height:140px;">
-    <span flex></span>
+  <md-toolbar class="md-tall md-hue-2" style="height:180px;max-height:180px;" >
 
-    <div layout="column">
-      <div layout-padding style="text-align: center;" >
-        <h1 style="margin-top:10px;">Loja X</h1>
-        <div style="font-size:12px;">A casa dos computadores</div>
+    <div layout="column" flex>
+      <div layout-padding style="margin-bottom:10px;text-align: center;" flex>
+        <h1>Loja X</h1>
+        <div style="font-size:16px;">A casa dos computadores</div>
       </div>
-      <div flex></div>
       <md-content layout="row" class="md-toolbar-tools-bottom inset " style="background-color:#111;color:#fff;opacity:0.89;">
         <span style="padding-top: 5px;">Olá {{ currentSession.nome }}</span>
         <span flex></span>
@@ -20,7 +18,7 @@
       </md-content>
     </div>
   </md-toolbar>
-  <md-content flex="auto">
+  <div flex="auto">
 
     <menu-link ng-repeat="item in menu">
       <a class="md-button md-ink-ripple" ui-sref="{{item.state}}" style="margin:0;border-radius: 0;width:100%;">
@@ -35,13 +33,14 @@
     </menu-link>
 
 
-</md-content>
+</div>
 
   <md-divider></md-divider>
   <footer flex="initial" style="height:150px; max-height:10%;text-align: center;">
-    <md-content layout-padding>
+    <div layout-padding>
       desenhado e desenvolvido por<br> Grupo Q – SINF MIEIC/FEUP 
-    </md-content>
+    </div>
 
   </footer>
 </div>
+

@@ -1,0 +1,74 @@
+<div layout="row" layout-wrap ng-cloack>
+
+<!-- <md-content> -->
+<!--<md-virtual-repeat-container id="vertical-container">
+<div md-virtual-repeat="product in catalog.infiniteItems" md-on-demand
+          class="repeated-item" flex>
+        <img ng-src="{{product.image}}?{{$index}}" class="md-avatar" alt="{{product.name}}" />
+          <h3>{{ product.description }}</h3>
+          <h4>{{ product.price | currency:'€':2}}</h4>
+          <p>{{IdentifyCategory(product.category_id)}}</p>
+          <p>{{VerifyStock(product)}}</p>
+      </div>
+</md-virtual-repeat-container> -->
+   <!-- 
+      <md-list-item class="md-3-line" >
+        <img ng-src="{{product.image}}?{{$index}}" class="md-avatar" alt="{{product.name}}" />
+        <div class="md-list-item-text" layout="column">
+          <h3>{{ product.description }}</h3>
+          <h4>{{ product.price | currency:'€':2}}</h4>
+          <p>{{IdentifyCategory(product.category_id)}}</p>
+          <p>{{VerifyStock(product)}}</p>  
+        </div>
+      </md-list-item>
+      <md-divider ></md-divider>
+    </md-list>
+  
+-->
+
+
+
+  <!-- </md-content> -->
+
+
+
+ <div flex="100"  layout-padding layout>
+    <div class="md-whiteframe-2dp" layout="row" layout-padding flex="auto">
+        <md-input-container flex>
+            <label style="display:none;">&nbsp;</label>
+            <input ng-model="searchText" placeholder="Procurar produto">
+          </md-input-container>
+        <div>
+            <md-switch ng-model="includeOutOfStock" aria-label=" Incluir items for de stock">
+                Incluir items fora de stock
+            </md-switch>
+        </div>
+    </div>
+
+  </div>
+
+ <div flex="100" layout="row" layout-align="center center" ng-if="!products">
+    <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+  </div>
+
+
+  <div flex="50"  layout-padding ng-repeat="product in products | filter:searchText" 
+      ng-if="VerifyStock(product) =='Artigo disponível' || includeOutOfStock"
+      layout>
+    <div class="md-whiteframe-2dp" layout="row" layout-padding flex="auto">
+    <div flex layout="column">
+          <h3 class="md-title">{{ product.description }}</h3>
+          <p>{{IdentifyCategory(product.category_id)}}</p>
+          <p>{{VerifyStock(product)}}</p>
+          <p ng-if="product.stockMin>product.stock" style="color:red">Stock atual abaixo do mínimo, comprar pelo menos {{product.stockMin-product.stock}}</p>
+    </div>
+    <div flex="none" layout="column">
+        <div flex></div>
+        <div style="font-size:18px;">{{ product.price | currency:'€':2}}</h4>
+    </div>
+
+      </div>
+
+  </div>
+
+  </div> 
