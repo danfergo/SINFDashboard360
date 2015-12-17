@@ -273,6 +273,7 @@
     <Compile Include="Controllers\Api\ClientsController.cs" />
     <Compile Include="Controllers\Api\DepartmentsController.cs" />
     <Compile Include="Controllers\Api\IndexController.cs" />
+    <Compile Include="Controllers\Api\ProvidersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\Api\ProductCategoriesController.cs" />
     <Compile Include="Controllers\Api\ProductController.cs" />
@@ -280,7 +281,6 @@
     <Compile Include="Controllers\Api\PurchasesController.cs" />
     <Compile Include="Controllers\Api\SalesController.cs" />
     <Compile Include="Controllers\Api\SessionController.cs" />
-    <Compile Include="Controllers\ProvidersController.cs" />
     <Compile Include="Database\Database.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
