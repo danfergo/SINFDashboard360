@@ -14,5 +14,7 @@ namespace SINFDashboard360.Models
         public string address;
         public string language;
         public string phone;
+        public double valorEncomendas;
+        public double porPagar;
     }
 }

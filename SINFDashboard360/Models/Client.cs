@@ -14,5 +14,7 @@ namespace SINFDashboard360.Models
         public string address;
         public string language;
         public string phone;
+        public double ValorTotal;
+        public double ValorPendente;
     }
 }

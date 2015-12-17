@@ -25,7 +25,7 @@ namespace SINFDashboard360.Pri_Bridge
 
                 //objList = PriEngine.Engine.Comercial.Clientes.LstClientes();
 
-                objList = PriEngine.Engine.Consulta("SELECT Cliente, Nome, Moeda, NumContrib as NumContribuinte, Fac_Mor AS campo_exemplo, Idioma, Fac_Tel FROM  CLIENTES");
+                objList = PriEngine.Engine.Consulta("SELECT Cliente, Nome, Clientes.Moeda, NumContrib as NumContribuinte, Fac_Mor AS campo_exemplo, Idioma, Fac_Tel, sum(Pendentes.ValorTotal) as Compras, sum(Pendentes.ValorPendente) as Deve FROM  CLIENTES, Pendentes Where Cliente = Pendentes.Entidade GROUP BY Cliente,Nome, Clientes.Moeda, NumContrib, Fac_Mor, Idioma, Fac_Tel");
 
 
                 while (!objList.NoFim())
@@ -38,7 +38,9 @@ namespace SINFDashboard360.Pri_Bridge
                         tax_number = objList.Valor("NumContribuinte"),
                         address = objList.Valor("campo_exemplo"),
                         language = objList.Valor("Idioma"),
-                        phone = objList.Valor("Fac_Tel")
+                        phone = objList.Valor("Fac_Tel"),
+                        ValorTotal = objList.Valor("Compras"),
+                        ValorPendente = objList.Valor("Deve")
                     });
                     objList.Seguinte();
 

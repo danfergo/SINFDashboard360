@@ -280,6 +280,7 @@
     <Compile Include="Controllers\Api\PurchasesController.cs" />
     <Compile Include="Controllers\Api\SalesController.cs" />
     <Compile Include="Controllers\Api\SessionController.cs" />
+    <Compile Include="Controllers\ProvidersController.cs" />
     <Compile Include="Database\Database.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -296,6 +297,7 @@
     <Compile Include="Lib__Primavera\PriIntegration.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Client.cs" />
+    <Compile Include="Models\Fornecedor.cs" />
     <Compile Include="Models\Funcionario.cs" />
     <Compile Include="Models\Departament.cs" />
     <Compile Include="Models\Sale.cs" />
@@ -311,6 +313,7 @@
     <Compile Include="Pri_Bridge\Employees.cs" />
     <Compile Include="Pri_Bridge\Engine\PriEngine.cs" />
     <Compile Include="Pri_Bridge\Products.cs" />
+    <Compile Include="Pri_Bridge\Providers.cs" />
     <Compile Include="Pri_Bridge\Purchases.cs" />
     <Compile Include="Pri_Bridge\Sales.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
