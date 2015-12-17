@@ -10,9 +10,9 @@ namespace SINFDashboard360.Controllers
     public class ProductsController : ApiController
     {
         // GET api/products
-        public IEnumerable<Models.Produto> Get(string id)
+        public IEnumerable<Models.Produto> Get()
         {
-            return Pri_Bridge.Products.getListaProdutosByCategory(id);
+            return Pri_Bridge.Products.getListaProdutos();
         }
 
     }
