@@ -1,79 +1,83 @@
-
 <div layout="row" layout-wrap>
-<!--
-<div flex="50" layout>
-	 <div class="md-whiteframe-2dp" layout="column" layout-padding flex="auto">
-	    <h3 class="md-title">Top 20 vendedores</h3>
-	    <canvas id="bar" class="chart chart-bar"
-		  chart-data="data" chart-labels="labels">
-		</canvas>
-	</div>
-</div>
+  <!--
+  <div flex="50" layout>
+       <div class="md-whiteframe-2dp" layout="column" layout-padding flex="auto">
+          <h3 class="md-title">Top 20 vendedores</h3>
+          <canvas id="bar" class="chart chart-bar"
+            chart-data="data" chart-labels="labels">
+          </canvas>
+      </div>
+  </div>
 
-<div flex="50" layout>
-	 <div class="md-whiteframe-2dp" layout="column" layout-padding flex="auto">
-	    <h3 class="md-title">Top 20 vendedores</h3>
-	    <canvas id="bar" class="chart chart-bar"
-		  chart-data="data" chart-labels="labels">
-		</canvas>
-	</div>
-</div> -->
+  <div flex="50" layout>
+       <div class="md-whiteframe-2dp" layout="column" layout-padding flex="auto">
+          <h3 class="md-title">Top 20 vendedores</h3>
+          <canvas id="bar" class="chart chart-bar"
+            chart-data="data" chart-labels="labels">
+          </canvas>
+      </div>
+  </div> -->
 
-<div flex="50"  layout-padding layout="column">
-	<div class="md-whiteframe-2dp" layout="column" layout-padding flex="auto">
-    <h3 class="md-title">Top compradores</h3>
-		<canvas id="bar" class="chart chart-bar"
-		  chart-data="data" chart-labels="labels">
-		</canvas>
-	</div>
-</div>
+  <div flex="50" layout-padding layout="column">
+    <div class="md-whiteframe-2dp" layout="column" layout-padding flex="auto">
+      <h3 class="md-title">Top compradores</h3>
+      <canvas id="buyers" class="chart chart-bar"
+              chart-data="dataBuyers" chart-labels="labelsbuyers">
+      </canvas>
+    </div>
+  </div>
 
-<div flex="50"  layout-padding layout="column">
-	<div class="md-whiteframe-2dp" layout="column" layout-padding flex="auto">
-    <h3 class="md-title">Top devedores</h3>
-		<canvas id="bar" class="chart chart-bar"
-		  chart-data="data" chart-labels="labels">
-		</canvas>
-	</div>
-</div>
+  <div flex="50" layout-padding layout="column">
+    <div class="md-whiteframe-2dp" layout="column" layout-padding flex="auto">
+      <h3 class="md-title">Top devedores</h3>
+      <canvas id="debtors" class="chart chart-bar"
+              chart-data="dataDebtors" chart-labels="labelsDebtors">
+      </canvas>
+    </div>
+  </div>
 
 
-<div flex="100"  layout-padding layout>
+  <div flex="100" layout-padding layout>
     <div class="md-whiteframe-2dp" layout="row" layout-padding flex="auto">
-        <md-input-container flex>
-            <label style="display:none;">&nbsp;</label>
-            <input ng-model="searchText" placeholder="Procurar cliente">
-        </md-input-container>
-        
+      <md-input-container flex>
+        <label style="display:none;">&nbsp;</label>
+        <input ng-model="searchText" placeholder="Procurar cliente">
+      </md-input-container>
+
     </div>
 
   </div>
 
 
- <div flex="100" layout="row" layout-align="center center" ng-if="!clients">
+  <div flex="100" layout="row" layout-align="center center" ng-if="!clients">
     <md-progress-circular md-mode="indeterminate"></md-progress-circular>
   </div>
 
-	<div flex="50"  layout-padding layout="column" ng-repeat="client in clients | filter:searchText">
-		<div class="md-whiteframe-2dp" layout="column" layout-padding flex="auto">
-		 	<div layout="row">
-		 		<div flex>
-				 	<h3 class="md-title">{{client.name}}</h3>
-					<p>{{client.address}}</p>
-				</div>
-				<div flex="none" class="text-right">
-					<div style="padding:20px 10px 0 0;">
-						<b>Comprou<br>99,99 €</b>
-					</div>
-				</div>
-			</div>
-			<p ng-if="client.tax_number">N. contribuinte: {{client.tax_number}}</p>
-		    <p ng-if="client.currency">Moeda: {{client.currency}}</p>
-		    <p ng-if="client.phone">Telefone: {{client.phone}}</p>
-		    <p ng-if="client.language">Idioma: {{client.language}}</p>
+  <div flex="50" layout-padding layout="column" ng-repeat="client in clients | filter:searchText">
+    <div class="md-whiteframe-2dp" layout="column" layout-padding flex="auto">
+      <div layout="row">
+        <div flex>
+          <h3 class="md-title">{{client.name}}</h3>
 
-		</div>
-	</div>
+          <p>{{client.address}}</p>
+        </div>
+        <div flex="none" class="text-right">
+          <div style="padding:20px 10px 0 0;">
+            <b>Comprou<br>{{client.ValorTotal | currency:"€"}}</b><br>
+            <b>Deve<br>{{client.ValorPendente | currency:"€"}}</b>
+          </div>
+        </div>
+      </div>
+      <p ng-if="client.tax_number">N. contribuinte: {{client.tax_number}}</p>
+
+      <p ng-if="client.currency">Moeda: {{client.currency}}</p>
+
+      <p ng-if="client.phone">Telefone: {{client.phone}}</p>
+
+      <p ng-if="client.language">Idioma: {{client.language}}</p>
+
+    </div>
+  </div>
 
 </div>
 
