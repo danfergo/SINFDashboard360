@@ -119,3 +119,21 @@ a, a:hover, a:focus, a:active, a:visited{
 md-checkbox {
   margin-bottom: 0!important;
 }
+
+
+
+
+menu-link.active a{
+  cursor:default;
+  background:#eee!important;
+}
+
+menu-link.active a .md-ripple-container{
+  display:none;
+}
+
+
+.chart-container canvas{
+    max-width: 100%!important;   
+    max-height: 100%!important;
+}

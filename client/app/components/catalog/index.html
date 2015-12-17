@@ -54,60 +54,57 @@
 
 
 <div flex="75"  layout-wrap>
+  <div layout="row"  layout-wrap>
+    <div flex="50"  layout-padding ng-repeat="product in filteredProducts() | filter:searchText | orderBy:'description'" layout>
+      <div class="md-whiteframe-2dp" layout="row" layout-padding flex="auto">
+          <div flex layout="column">
+                <h3 class="md-title">{{ product.description }}</h3>
+                <p>{{IdentifyCategory(product.category_id)}}</p>
+                <p>{{VerifyStock(product)}}</p>
+                <p ng-if="product.stockMin>product.stock" style="color:red">Stock atual abaixo do mínimo, comprar pelo menos {{product.stockMin-product.stock}}</p>
+          </div>
+          <div flex="none" layout="column">
+              <div flex></div>
+              <div style="font-size:18px;">
+              {{ product.price | currency:'€':2}}
+              </div>
 
-<div layout="row" >
-  <div flex="50"  layout-padding ng-repeat="product in products | filter:searchText" 
-      ng-if="VerifyStock(product) =='Artigo disponível' || includeOutOfStock"
-      layout>
-    <div class="md-whiteframe-2dp" layout="row" layout-padding flex="auto">
-        <div flex layout="column">
-              <h3 class="md-title">{{ product.description }}</h3>
-              <p>{{IdentifyCategory(product.category_id)}}</p>
-              <p>{{VerifyStock(product)}}</p>
-              <p ng-if="product.stockMin>product.stock" style="color:red">Stock atual abaixo do mínimo, comprar pelo menos {{product.stockMin-product.stock}}</p>
+          </div>
         </div>
-        <div flex="none" layout="column">
-            <div flex></div>
-            <div style="font-size:18px;">
-            {{ product.price | currency:'€':2}}
-            </div>
-
-        </div>
-      </div>
+    </div>
   </div>
-</div>
 
 </div>
 
-<div flex="25" ng-if="products ">
+<div flex="25" ng-if="products">
 <div layout-padding>
       <div class="md-whiteframe-2dp">
 
       <h4 style="padding-left:20px;">Filtrar pelo stock</h4>
       <md-list-item class="md-1-line">
         <div class="md-list-item-text" layout="row">
-          <md-checkbox ng-model="filterCategories['low']">
+          <md-checkbox ng-model="filterQuantity['out']">
             <b>Esgotado</b>
           </md-checkbox>
         </div>
       </md-list-item>
       <md-list-item class="md-1-line">
         <div class="md-list-item-text" layout="row">
-          <md-checkbox ng-model="filterCategories['min']">
+          <md-checkbox ng-model="filterQuantity['min']">
             <b>Abaixo do minimo</b>
           </md-checkbox>
         </div>
       </md-list-item>
       <md-list-item class="md-1-line">
         <div class="md-list-item-text" layout="row">
-          <md-checkbox ng-model="filterCategories['ok']">
+          <md-checkbox ng-model="filterQuantity['ok']">
             <b>Dentro dos limites</b>
           </md-checkbox>
         </div>
       </md-list-item>
       <md-list-item class="md-1-line">
         <div class="md-list-item-text" layout="row">
-          <md-checkbox ng-model="filterCategories['excedes']">
+          <md-checkbox ng-model="filterQuantity['excedes']">
             <b>Acima dos limites</b>
           </md-checkbox>
         </div>
@@ -115,13 +112,13 @@
     </md-list>
 
     <md-divider></md-divider>
-
     <h4 style="padding-left:20px;">Filtrar categorias</h4>
-    <md-list style="max-height:400px;overflow-y:auto;overflow-x:hidden;">
+    <md-list style="overflow-y:auto;overflow-x:hidden;">
       <md-list-item class="md-1-line" ng-repeat="productCategory in categories">
         <div class="md-list-item-text" layout="row">
-          <md-checkbox ng-model="filterCategories[productCategory.category_id]">
-            <b>{{productCategory.description}}</b>
+          <md-checkbox ng-model="filterCategories[productCategory.category_id]" ng-true-value="true">
+            <b>{{productCategory.description}}</b>      
+
           </md-checkbox>
         </div>
       </md-list-item>

@@ -1,7 +1,6 @@
 angular.module('dash-sidebar', []).
 controller('SidebarController', ['$scope', 'Session', '$mdSidenav',function ($scope, Session, $mdSidenav) {
   $scope.$mdSidenav = $mdSidenav;
-
   $scope.menu = [
     {
       state: 'index',
@@ -41,6 +40,9 @@ controller('SidebarController', ['$scope', 'Session', '$mdSidenav',function ($sc
 
   ];
 
+  $scope.wait = function(){
+    $scope.wait = true;
+  }
 }]).
 directive('dashSidebar', ['Session', '$rootScope', function (Session) {
  /*function link(scope) {

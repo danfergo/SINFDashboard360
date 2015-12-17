@@ -1,8 +1,63 @@
 <div layout="row">
-  <md-sidenav dash-sidebar flex="none"
+  <md-sidenav flex="none" style="width:320px;!important"
               layout="column" class="md-sidenav-left md-whiteframe-z2"
               md-component-id="left"
               md-is-locked-open="$mdMedia('gt-md')">
+<!----------- sidebar ----------------------- --> 
+
+
+
+<div  layout-fill layout="column">
+
+  <md-toolbar class="md-tall md-hue-2" style="height:180px;max-height:180px;" >
+
+    <div layout="column" flex>
+      <div layout-padding style="margin-bottom:10px;text-align: center;" flex>
+        <h1>Loja X</h1>
+        <div style="font-size:16px;">A casa dos computadores</div>
+      </div>
+      <md-content layout="row" class="md-toolbar-tools-bottom inset " style="background-color:#111;color:#fff;opacity:0.89;">
+        <span ng-if="currentSession.nome" style="padding-top: 5px;">Olá {{ currentSession.nome }}</span>
+        <span flex>&nbsp;</span>
+        <span ng-if="currentSession.nome">
+          <a ui-sref="logout" ng-click="wait()" style="color:#fff;">
+            <ng-md-icon icon="logout" size="24"></ng-md-icon>
+          </a>
+        </span>
+      </md-content>
+    </div>
+  </md-toolbar>
+  <div flex="auto">
+
+    <menu-link ng-repeat="item in menu" ui-sref-active="active">
+      <a class="md-button md-ink-ripple" ui-sref="{{item.state}}"  style="margin:0;border-radius: 0;width:100%;">
+        <md-item-content md-ink-ripple layout="row" layout-align="start center" >
+          <div class="inset">
+            <ng-md-icon icon="{{item.icon}}"></ng-md-icon>
+          </div>
+          <div class="inset">{{item.title}}
+          </div>
+        </md-item-content>
+      </a>
+    </menu-link>
+
+
+</div>
+
+  <md-divider></md-divider>
+  <footer flex="initial" style="height:100px; max-height:10%;text-align: center;">
+    <div layout-padding>
+      desenhado e desenvolvido por<br> Grupo Q – SINF MIEIC/FEUP 
+    </div>
+
+  </footer>
+</div>
+
+
+
+
+
+<!------------------------ - -->
   </md-sidenav>
 
 
@@ -15,9 +70,9 @@
   <md-toolbar flex="none" layout="column" ng-include="'shared/toolbar/toolbar.html'">  </md-toolbar>
 
 
-  <div flex layout="column"  class="md-default-theme" ui-view style="overflow-y:auto">
+      <div flex layout="column"  class="md-default-theme" ui-view style="overflow-y:auto">
 
-  </div>
+      </div>
 
 
     </div>

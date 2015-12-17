@@ -27,8 +27,49 @@ config(function ($stateProvider, $urlRouterProvider) {
     abstract:true,
     templateUrl:'shared/layouts/both.html',
     controller: ['$scope','currentSession', function($scope,currentSession){
-      $scope.pageTitle = "COMPANY";
+      $scope.pageTitle = "Loja X";
       $scope.currentSession = currentSession;
+
+        $scope.menu = [
+    {
+      state: 'index',
+      title: 'Início',
+      icon: 'dashboard'
+    },
+    {
+      state: 'purchases',
+      title: 'Compras',
+      icon: 'shopping_cart'
+    },
+    {
+      state: 'catalog',
+      title: 'Catalogo',
+      icon: 'shop'
+    },
+    {
+      state: 'humanResources',
+      title: 'Recursos Humanos',
+      icon: 'assignment_ind'
+    },
+    {
+      state: 'sales',
+      title: 'Vendas',
+      icon: 'receipt'
+    },
+    {
+      state: 'accounting',
+      title: 'Contabilidade',
+      icon: 'assessment'
+    },
+    {
+      state: 'clients',
+      title: 'Clientes',
+      icon: 'face'
+    }
+
+  ];
+
+
     }],
     resolve:{
       'currentSession': ['Session', function(Session){

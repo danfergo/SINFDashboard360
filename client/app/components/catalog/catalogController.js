@@ -1,15 +1,54 @@
 angular.module('dash-catalog').
-controller('catalogController', ['$scope', 'Product', 'ProductCategory', '$stateParams', function ($scope, Product, ProductCategory, $stateParams) {
+controller('catalogController', ['$scope', 'Product', 'ProductCategory', function ($scope, Product, ProductCategory) {
 	$scope.$parent.pageTitle = "Catálogo";
 	$scope.products = null;
 	$scope.categories = null;
 	$scope.includeOutOfStock = false;
+	$scope.filterCategories = {};
+	$scope.filterQuantity = {};
 
+
+	var selectedCategoriesIds = function () {
+		var categoriesIds = [];
+		for(var i in $scope.filterCategories){
+			if($scope.filterCategories[i]) categoriesIds.push(i);
+		}
+		return categoriesIds;
+	}
+	var filterByCategory = function (products) {
+		var selecCategoriesIds = selectedCategoriesIds();
+		if(selecCategoriesIds.length == 0) return products;
+		else return products.filter(function(product){
+				if(selecCategoriesIds.indexOf(product.category_id) == -1){
+					return false;
+				}else {
+					return true;
+				}
+			})
+	}
+
+	var filterByQuantity = function (products) {
+		if( !$scope.filterQuantity['out'] && 
+			!$scope.filterQuantity['min'] && 
+			!$scope.filterQuantity['ok'] && 
+			!$scope.filterQuantity['excedes']
+			) return products;
+		else { return products.filter(function(product){
+							return  ($scope.filterQuantity['out'] && product.stock <=  0) || 
+									($scope.filterQuantity['min'] && product.stock <  product.stockMin) || 
+									($scope.filterQuantity['ok']  && (product.stock >= product.stock && product.stock <= product.stock) )  || 
+									($scope.filterQuantity['excedes'] && product.stock > product.stockMax);
+						});
+		}
+	}
+
+	$scope.filteredProducts = function () {
+		return  filterByQuantity(filterByCategory($scope.products));
+	}
 	
-
 	ProductCategory.query(function(data){
 		$scope.categories = data;
-		Product.get({id:$stateParams.categoryId},function(data){
+		Product.get(function(data){
 			$scope.products = data;
 		});
 	});
@@ -44,25 +83,25 @@ controller('catalogController', ['$scope', 'Product', 'ProductCategory', '$state
       }
   };*/
 
-		$scope.toggle = function(event){
+	$scope.toggle = function(event){
 		$(event.currentTarget).toggleClass('active');
 	}
 
-		$scope.VerifyStock = function(product){
-			console.log(product.description +" max: " +product.stock + " min:" + product.stockMin)
-			if(product.stock > 0)
-				return "Artigo disponível";
-			else
-				return "Artigo indisponível";
-		}
+	$scope.VerifyStock = function(product){
+		//console.log(product.description +" max: " +product.stock + " min:" + product.stockMin)
+		if(product.stock > 0)
+			return "Artigo disponível";
+		else
+			return "Artigo indisponível";
+	}
 
-		$scope.IdentifyCategory = function(category_id){
-			var length = $scope.categories ? $scope.categories.length : 0;
-			for(var i = 0; i<length; i++)
-			{
-				if($scope.categories[i].category_id === category_id)
-					return $scope.categories[i].description;			
-			}
-			return "Sem categoria associada";
+	$scope.IdentifyCategory = function(category_id){
+		var length = $scope.categories ? $scope.categories.length : 0;
+		for(var i = 0; i<length; i++)
+		{
+			if($scope.categories[i].category_id === category_id)
+				return $scope.categories[i].description;			
 		}
+		return "Sem categoria associada";
+	}
 }]);

@@ -8,10 +8,10 @@
         <div style="font-size:16px;">A casa dos computadores</div>
       </div>
       <md-content layout="row" class="md-toolbar-tools-bottom inset " style="background-color:#111;color:#fff;opacity:0.89;">
-        <span style="padding-top: 5px;">Olá {{ currentSession.nome }}</span>
-        <span flex></span>
-        <span>
-          <a ui-sref="logout" style="color:#fff;">
+        <span ng-if="currentSession.nome" style="padding-top: 5px;">Olá {{ currentSession.nome }}</span>
+        <span flex>&nbsp;</span>
+        <span ng-if="currentSession.nome">
+          <a ui-sref="logout" ng-click="wait()" style="color:#fff;">
             <ng-md-icon icon="logout" size="24"></ng-md-icon>
           </a>
         </span>
@@ -20,9 +20,9 @@
   </md-toolbar>
   <div flex="auto">
 
-    <menu-link ng-repeat="item in menu">
-      <a class="md-button md-ink-ripple" ui-sref="{{item.state}}" style="margin:0;border-radius: 0;width:100%;">
-        <md-item-content md-ink-ripple layout="row" layout-align="start center">
+    <menu-link ng-repeat="item in menu" ui-sref-active="active">
+      <a class="md-button md-ink-ripple" ui-sref="{{item.state}}"  style="margin:0;border-radius: 0;width:100%;">
+        <md-item-content md-ink-ripple layout="row" layout-align="start center" >
           <div class="inset">
             <ng-md-icon icon="{{item.icon}}"></ng-md-icon>
           </div>
@@ -36,7 +36,7 @@
 </div>
 
   <md-divider></md-divider>
-  <footer flex="initial" style="height:150px; max-height:10%;text-align: center;">
+  <footer flex="initial" style="height:100px; max-height:10%;text-align: center;">
     <div layout-padding>
       desenhado e desenvolvido por<br> Grupo Q – SINF MIEIC/FEUP 
     </div>

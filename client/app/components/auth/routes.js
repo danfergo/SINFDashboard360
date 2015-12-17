@@ -2,11 +2,7 @@ angular.module('dash-auth', ['dash-model']).
 controller('logoutController', ['Session', '$state', '$mdToast', function (Session, $state, $mdToast) {
 
   Session.delete(function () {
-    $mdToast.show(
-        $mdToast.simple()
-          .content('Até breve!')
-          .hideDelay(1000)
-      );
+    $mdToast.show('Até breve!');
     $state.go('index');
   });
 
@@ -28,6 +24,7 @@ config(function ($stateProvider) {
   state('logout', {
     parent: 'lt',
     url: 'logout',
-    controller: 'logoutController'
+    controller: 'logoutController',
+    templateUrl: 'components/auth/logout.html',
   });
 });

@@ -1,31 +1,36 @@
 <md-content layout-fill layout="column" layout-align="center center" class="md-default-theme">
 
-  <md-card class="md-whiteframe-1dp" style="width:350px">
-    <md-card-content layout-padding>
-      <form name="loginForm" flex-gt-md>
+  <md-card class="md-whiteframe-1dp" style="width:320px">
+    <md-card-content style="padding:30px 20px;">
+      <form name="loginForm" layout="column">
         <h1 class="md-title">Iniciar sessão</h1>
-        <md-input-container flex>
+        <md-input-container>
           <label>Email</label>
           <input ng-model="email" type="email" name="email" ng-required="true">
         </md-input-container>
 
-        <md-input-container flex>
+        <md-input-container>
           <label>Palavra-passe</label>
           <input ng-model="password" type="password" name="password" ng-required="true">
         </md-input-container>
-        <md-input-container flex>
 
-
-        </md-input-container>
-        <md-input-container flex>
-          <span style="color:#f00">{{errorMessage}}</span>
-          <md-button style="margin-left:0; margin-right:0;"
-                     class="md-raised md-primary"
-                     ng-disabled="!loginForm.$valid"
-                     ng-click="login(email,password)"
-                     flex>Iniciar Sessão
-          </md-button>
-        </md-input-container>
+        <div layout="column">
+           <div style="height:50px;">
+           <div layout="row" layout-align="center center" ng-if="waiting">
+              <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+            </div>
+            <div style="color:#f00">{{errorMessage}}</div>
+            </div>
+          <div>
+            <md-button ng-disabled="waiting"
+                       style="margin-left:0; margin-right:0;width:100%;"
+                       class="md-raised md-primary"
+                       ng-disabled="!loginForm.$valid"
+                       ng-click="login(email,password)"
+                       >Iniciar Sessão
+            </md-button>
+          </div>
+        </div>
       </form>
     </md-card-content>
   </md-card>
