@@ -26,7 +26,7 @@ namespace SINFDashboard360.Pri_Bridge
 
             if (SINFDashboard360.Pri_Bridge.Engine.PriEngine.InitializeCompany(SINFDashboard360.Properties.Settings.Default.Company.Trim(), SINFDashboard360.Properties.Settings.Default.User.Trim(), SINFDashboard360.Properties.Settings.Default.Password.Trim()) == true)
             {
-                objListCab = SINFDashboard360.Pri_Bridge.Engine.PriEngine.Engine.Consulta("SELECT id, NumDocExterno, Entidade, DataDoc, NumDoc, TotalMerc, Serie, Fornecedores.Nome From CabecCompras, Fornecedores " +
+                objListCab = SINFDashboard360.Pri_Bridge.Engine.PriEngine.Engine.Consulta("SELECT id, NumDocExterno, Entidade, DataDoc, NumDoc, TotalMerc, Serie, Fornecedores.Nome as NomeFornecedor From CabecCompras, Fornecedores " +
                     "where Fornecedores.Fornecedor = CabecCompras.Entidade and (TipoDoc='VFA' OR TipoDoc='NC') AND DataDoc > '" + min_date.ToString("yyyy-MM-dd HH:mm:ss") + "' AND DataDoc < '" + max_date.ToString("yyyy-MM-dd HH:mm:ss") + "'");
                 //AND DataDoc > '" + min_date + "' AND DataDoc < '" + max_date + "'
                 while (!objListCab.NoFim())
@@ -34,7 +34,7 @@ namespace SINFDashboard360.Pri_Bridge
                     dc = new DocCompra();
                     dc.id = objListCab.Valor("id");
                     dc.NumDocExterno = objListCab.Valor("NumDocExterno");
-                    dc.Entidade = objListCab.Valor("Nome");
+                    dc.Entidade = objListCab.Valor("NomeFornecedor");
                     dc.NumDoc = objListCab.Valor("NumDoc");
                     dc.Data = objListCab.Valor("DataDoc");
                     dc.TotalMerc = objListCab.Valor("TotalMerc");
