@@ -27,7 +27,7 @@ namespace SINFDashboard360.Pri_Bridge
             if (SINFDashboard360.Pri_Bridge.Engine.PriEngine.InitializeCompany(SINFDashboard360.Properties.Settings.Default.Company.Trim(), SINFDashboard360.Properties.Settings.Default.User.Trim(), SINFDashboard360.Properties.Settings.Default.Password.Trim()) == true)
             {
                 objListCab = SINFDashboard360.Pri_Bridge.Engine.PriEngine.Engine.Consulta("SELECT id, NumDocExterno, Entidade, DataDoc, NumDoc, TotalMerc, Serie, TipoDoc, DocumentosCompra.Descricao, Fornecedores.Nome as NomeFornecedor From CabecCompras, Fornecedores, DocumentosCompra " +
-                    "where Fornecedores.Fornecedor = CabecCompras.Entidade and (TipoDoc='VFA' OR TipoDoc='VFG'OR TipoDoc='VFI' OR TipoDoc='VFO' OR TipoDoc='VFP' OR TipoDoc='VNC' OR TipoDoc='VND' OR TipoDoc='VVD') and DocumentosCompra.Documento = TipoDoc AND DataDoc > '" + min_date.ToString("yyyy-MM-dd HH:mm:ss") + "' AND DataDoc < '" + max_date.ToString("yyyy-MM-dd HH:mm:ss") + "'");
+                    "where Fornecedores.Fornecedor = CabecCompras.Entidade and (TipoDoc='VFA' OR TipoDoc='VFG' OR TipoDoc='VFI' OR TipoDoc='VFO' OR TipoDoc='VFP' OR TipoDoc='VNC' OR TipoDoc='VND' OR TipoDoc='VVD') and DocumentosCompra.Documento = TipoDoc AND DataDoc > '" + min_date.ToString("yyyy-MM-dd HH:mm:ss") + "' AND DataDoc < '" + max_date.ToString("yyyy-MM-dd HH:mm:ss") + "'");
                 //AND DataDoc > '" + min_date + "' AND DataDoc < '" + max_date + "'
                 while (!objListCab.NoFim())
                 {
