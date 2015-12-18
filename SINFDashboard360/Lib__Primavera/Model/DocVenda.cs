@@ -50,6 +50,12 @@ namespace SINFDashboard360.Lib_Primavera.Model
             set;
         }
 
+        public string TipoDocDesc
+        {
+            get;
+            set;
+        }
+
         public List<Model.LinhaDocVenda> LinhasDoc
 
         {
