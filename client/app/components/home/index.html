@@ -3,7 +3,7 @@
 
 	<div flex="100" flex-gt-sm="33"  layout-padding layout="column">
 		<div class="md-whiteframe-2dp" layout="column" layout-padding flex="auto">
-			<h3 class="md-title">Vendas por liquidar</h3>
+			<h3 class="md-title">Recebimentos por liquidar</h3>
 			<div flex></div>
 			<div class="div-table stripped" flex="none">
 				<div layout="row">
@@ -59,7 +59,7 @@
 	<div flex="100" flex-gt-sm="33" layout-padding layout="column">
 		<div class="md-whiteframe-2dp" layout-padding flex="auto" layout="column">
 			<h3 class="md-title">Ontem</h3>
-			<p class="huge-data" flex="auto">200<small>€</small></p>
+			<p class="huge-data" flex="auto">138<small>€</small><br><span class="small-small">magem bruta sobre vendas</span></p>
 			<div layout="row" flex="none">
 				<div>
 				FATURADO: 1000€
@@ -84,7 +84,7 @@
 <div flex="100" flex-gt-sm="33" layout-padding layout="column" >
 		<div class="md-whiteframe-2dp" layout-padding flex="auto" layout="column" >
 			<h3 class="md-title" flex="none">Este mês</h3>
-			<p class="huge-data" flex="auto">200<small>€</small></p>
+			<p class="huge-data" flex="auto">2731<small>€</small><br><span class="small-small">magem bruta sobre vendas</span></p>
 			<div layout="row" flex="none">
 				<div>
 				JÁ FATURADO: 10000€
@@ -114,24 +114,25 @@
 			<div flex></div>
 			<div class="div-table stripped" flex="none">
 				<div layout="row">
-					<div flex>Titulo do produto</div>
-					<div flex="none">10€</div>
+					<div flex>Mesa p/ PC</div>
+					<div flex="none">1 UN x €62,00</div>
 				</div>
 				<div layout="row">
-					<div flex>Titulo do produto</div>
-					<div flex="none">10€</div>
+					<div flex>Computador Pentium III 800MHz</div>
+					<div flex="none">10 UN x €1,000.00</div>
 				</div>
 				<div layout="row">
-					<div flex>Titulo do produto</div>
-					<div flex="none">10€</div>
+					<div flex>Computador Pentium IV 1600MHz</div>
+					<div flex="none">1 UN x €5,500.00</div>
 				</div>
 				<div layout="row">
-					<div flex>Titulo do produto</div>
-					<div flex="none">10€</div>
+					<div flex>Computador Pentium III 800MHz</div>
+					<div flex="none">5 UN x €1,100.00</div>
 				</div>
 			</div>
 		</div>
 	</div>
+
 
 	
 	<div flex="33"  layout-padding layout="column">
@@ -175,12 +176,18 @@
 
 .huge-data {
 	text-align:center;
-	font-size:72px;
-	margin:20px auto;
+	font-size:96px;
+	margin:60px auto 10px;
+	line-height: 60px;
 }
 
 .huge-data small{
 	font-size:50px;
+}
+
+.huge-data .small-small{
+	font-size:14px;
+	line-height: 14px;
 }
 
 div.large-data.layout-row {
