@@ -2,7 +2,7 @@ angular.module('amep',
   [
     'ui.router', 'ngMaterial', 'ngMdIcons', 'permission', 'chart.js',
     'dash-layouts', 
-    'dash-home', 'dash-accounting', 'dash-catalog','dash-clients',
+    'dash-home', 'dash-providers', 'dash-catalog','dash-clients',
     'dash-humanResources','dash-purchases','dash-sales',
     'dash-errors', 'dash-auth']).
 run(['$rootScope', '$mdSidenav', function ($rootScope, $mdSidenav) {

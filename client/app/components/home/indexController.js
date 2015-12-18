@@ -1,16 +1,16 @@
 angular.module('dash-home').
 controller('indexController', ['$scope', function ($scope) {
-		$scope.$parent.pageTitle = "Início";
+	$scope.$parent.pageTitle = "Início";
 
 
-	$scope.months = ["jan", "feb", "mar", "abr", "may", "jun", "jul"];
+	$scope.months = ["may", "jun", "jul", "ago","set","out","nov","dec"];
 	
 	$scope.purchasesNsales = ['Compras', 'Vendas'];
 	$scope.purchasesNsalesValues = [
-		[65, 59, 80, 81, 56, 55, 40],
-		[28, 48, 40, 19, 86, 27, 90]
+		[65, 59, 32, 35,30, 58, 60, 90],
+		[70, 65, 43,45, 40, 72, 70, 110]
 	];
 
-	$scope.categories = ["Download Sales", "In-Store Sales", "Mail-Order Sales"];
-  	$scope.salesPerCategory = [300, 500, 100];
+	$scope.categories = ["Ratos", "Computadores", "Acessórios", "Scanners", "Teclados", "Modems"];
+  	$scope.salesPerCategory = [3000, 5000, 1000,200,2300,1000];
 }]);

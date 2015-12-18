@@ -57,14 +57,14 @@ config(function ($stateProvider, $urlRouterProvider) {
       icon: 'receipt'
     },
     {
-      state: 'accounting',
-      title: 'Contabilidade',
-      icon: 'assessment'
+      state: 'providers',
+      title: 'Fornecedores',
+      icon: 'local_shipping'
     },
     {
       state: 'clients',
       title: 'Clientes',
-      icon: 'face'
+      icon: 'people'
     }
 
   ];
