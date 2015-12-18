@@ -65,7 +65,7 @@
  layout-margin layout-padding>
  	    <div flex>{{ sale.Data | date:'shortDate'}}</div>
  	    <div flex>{{sale.Entidade}} </div>
- 	    <div flex>{{-1*sale.TotalMerc | currency:'€':2}}</div>
+ 	    <div flex>{{sale.TotalMerc | currency:'€':2}}</div>
   </md-whiteframe> 
 
   <md-whiteframe class="md-whiteframe-15dp" 
@@ -78,8 +78,8 @@
 
 	      <div flex>{{line.CodArtigo}}</div>
 	      <div flex>{{line.DescArtigo}}</div>
-	      <div flex>{{-1*line.Quantidade}} {{line.Unidade}} x {{-1*line.PrecoUnitario | currency:'€':2}}</div>
-	      <div flex="15">{{-1*line.TotalILiquido | currency:'€':2}}</div>
+	      <div flex>{{line.Quantidade}} {{line.Unidade}} x {{line.PrecoUnitario | currency:'€':2}}</div>
+	      <div flex="15">{{line.TotalILiquido | currency:'€':2}}</div>
 
 	    </div>	  	
 
