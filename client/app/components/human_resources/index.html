@@ -1,72 +1,71 @@
 <div layout="column">
 
 
-
-
-
-
-
- <div layout="row" layout-align="center center" ng-if="!departments">
+  <div layout="row" layout-align="center center" ng-if="!departments">
     <md-progress-circular md-mode="indeterminate"></md-progress-circular>
   </div>
 
- <div layout="row" ng-if="departments">
- 	<div flex="10"></div>
-    <div flex="40"  layout-padding layout="column">
-	<div class="md-whiteframe-2dp" layout="column" layout-padding flex="auto">
-	    <h3 class="md-title">Nº de colaboradores por departamento</h3>
-			<canvas id="pie" class="chart chart-pie"
-				  chart-data="data" chart-labels="labels">
-				</canvas> 
-		</div>
-	</div>
+  <div layout="row" ng-if="departments">
+    <div flex="10"></div>
+    <div flex="40" layout-padding layout="column">
+      <div class="md-whiteframe-2dp" layout="column" layout-padding flex="auto">
+        <h3 class="md-title">Nº de colaboradores por departamento</h3>
+        <canvas id="pie" class="chart chart-pie"
+                chart-data="dataCollaborators" chart-labels="labelsCollaborators">
+        </canvas>
+      </div>
+    </div>
 
-	<div flex="40"  layout-padding layout="column">
-		<div class="md-whiteframe-2dp" layout="column" layout-padding flex="auto">
-	    <h3 class="md-title">Salários por departamento</h3>
-			<canvas id="" class="chart chart-pie"
-			  chart-data="dataSalarios" chart-labels="labels">
-			</canvas> 
-		</div>
-	</div>
-	<div flex="10"></div>
+    <div flex="40" layout-padding layout="column">
+      <div class="md-whiteframe-2dp" layout="column" layout-padding flex="auto">
+        <h3 class="md-title">Salários por departamento</h3>
+        <canvas id="" class="chart chart-pie"
+                chart-data="dataSalaries" chart-labels="labelsSalaries">
+        </canvas>
+      </div>
+    </div>
+    <div flex="10"></div>
 
   </div>
 
-<div ng-repeat="department in departments" >
+  <div ng-repeat="department in departments">
 
- <md-whiteframe class="department md-whiteframe-1dp"  
- layout="column" ng-click="toggle($event)"
- layout-margin layout-padding>
- 	<h3>{{department.description}}</h3>
- 	<p>Nº funcionários: {{department.employees.length}}</p>
- 	<p>Total salários: {{getTotalSalaries(department)}} </p>
-  </md-whiteframe> 
+    <md-whiteframe class="department md-whiteframe-1dp"
+                   layout="column" ng-click="toggle($event)"
+                   layout-margin layout-padding>
+      <h3>{{department.description}}</h3>
 
-  <md-whiteframe class="md-whiteframe-15dp" 
- layout="column"
- layout-margin layout-padding>
-	 
-	<md-list>
-	  <md-list-item class="md-2-line" ng-repeat="employee in department.employees">
+      <p>Nº funcionários: {{department.employees.length}}</p>
 
-	    <div class="md-list-item-text">
-	      <h4>{{employee.name}}</h3>
-	      <p>Sexo: {{employee.sex == 0 ? 'Masculino' : 'Feminino' }}</p>
-	      <p>Salário: {{employee.salary | currency:'€':2}}	</p>
+      <p>Total salários: {{getTotalSalaries(department)}} </p>
+    </md-whiteframe>
 
-	    </div>
+    <md-whiteframe class="md-whiteframe-15dp"
+                   layout="column"
+                   layout-margin layout-padding>
 
-	    <md-divider ng-if="!$last"></md-divider>
+      <md-list>
+        <md-list-item class="md-2-line" ng-repeat="employee in department.employees">
 
-	  </md-list-item>
-	</md-list>
+          <div class="md-list-item-text">
+            <h4>{{employee.name}}</h4>
 
- </md-whiteframe>
+            <p>Sexo: {{employee.sex == 0 ? 'Masculino' : 'Feminino' }}</p>
+
+            <p>Salário: {{employee.salary | currency:'€':2}} </p>
+
+          </div>
+
+          <md-divider ng-if="!$last"></md-divider>
+
+        </md-list-item>
+      </md-list>
+
+    </md-whiteframe>
+
+  </div>
+
 
 </div>
-
-
-  </div>
 
 
