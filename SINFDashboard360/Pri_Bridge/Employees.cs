@@ -21,7 +21,15 @@ namespace SINFDashboard360.Pri_Bridge
 
                 //objList = PriEngine.Engine.Comercial.Clientes.LstClientes();
 
-                objList = Pri_Bridge.Engine.PriEngine.Engine.Consulta("SELECT * FROM Funcionarios WHERE CodDepartamento='" + CodDepartamento + "'");
+                DateTime anterior = new DateTime(Int32.Parse(DateTime.Now.Year.ToString()), Int32.Parse(DateTime.Now.Month.ToString()), 1, 0,0,0);
+                DateTime atual = new DateTime(Int32.Parse(DateTime.Now.Year.ToString()), Int32.Parse(DateTime.Now.Month.ToString()), 1, 0, 0, 0);
+
+                anterior = anterior.AddMonths(-1);
+
+                var anteriorString = anterior.ToString("yyyy-MM-dd HH:mm:ss");
+                var atualString = atual.ToString("yyyy-MM-dd HH:mm:ss");
+
+               objList = Pri_Bridge.Engine.PriEngine.Engine.Consulta("SELECT Funcionarios.Codigo, Funcionarios.Nome, Funcionarios.DataNascimento, Funcionarios.Sexo, Funcionarios.Qualificacao, Funcionarios.VencimentoMensal, Funcionarios.ValorSubsAlim, Funcionarios.ValorSubsEsp, sum(Recibos.TotalLiquido) as ValorTotal FROM Funcionarios, Recibos WHERE Funcionarios.Codigo=Recibos.CodFunc and (Recibos.DataMovimento = '"+atualString+"') and CodDepartamento='" + CodDepartamento + "' GROUP BY  Funcionarios.Codigo, Funcionarios.Nome, Funcionarios.DataNascimento, Funcionarios.Sexo, Funcionarios.Qualificacao, Funcionarios.VencimentoMensal, Funcionarios.ValorSubsAlim, Funcionarios.ValorSubsEsp");
 
 
                 while (!objList.NoFim())
@@ -36,7 +44,7 @@ namespace SINFDashboard360.Pri_Bridge
                         salary = objList.Valor("VencimentoMensal"),
                         subAlimentar =objList.Valor("ValorSubsAlim"),
                         subEsp = objList.Valor("ValorSubsEsp"),
-                        vencimento = objList.Valor("Vencimento")
+                        vencimento = objList.Valor("ValorTotal")
                     });
                     objList.Seguinte();
 
