@@ -29,7 +29,7 @@ namespace SINFDashboard360.Pri_Bridge
                 var anteriorString = anterior.ToString("yyyy-MM-dd HH:mm:ss");
                 var atualString = atual.ToString("yyyy-MM-dd HH:mm:ss");
 
-               objList = Pri_Bridge.Engine.PriEngine.Engine.Consulta("SELECT Funcionarios.Codigo, Funcionarios.Nome, Funcionarios.DataNascimento, Funcionarios.Sexo, Funcionarios.Qualificacao, Funcionarios.VencimentoMensal, Funcionarios.ValorSubsAlim, Funcionarios.ValorSubsEsp, sum(Recibos.TotalLiquido) as ValorTotal FROM Funcionarios, Recibos WHERE Funcionarios.Codigo=Recibos.CodFunc and (Recibos.DataMovimento = '"+atualString+"') and CodDepartamento='" + CodDepartamento + "' GROUP BY  Funcionarios.Codigo, Funcionarios.Nome, Funcionarios.DataNascimento, Funcionarios.Sexo, Funcionarios.Qualificacao, Funcionarios.VencimentoMensal, Funcionarios.ValorSubsAlim, Funcionarios.ValorSubsEsp");
+               objList = Pri_Bridge.Engine.PriEngine.Engine.Consulta("SELECT Funcionarios.Codigo, Funcionarios.Nome, Funcionarios.DataNascimento, Funcionarios.Sexo, Funcionarios.Qualificacao, Funcionarios.VencimentoMensal, Funcionarios.ValorSubsAlim, Funcionarios.ValorSubsEsp, sum(Recibos.TotalLiquido) as ValorTotal FROM Funcionarios, Recibos WHERE Funcionarios.Codigo=Recibos.CodFunc and (Recibos.DataMovimento between '"+anteriorString+"' and '"+atualString+"') and CodDepartamento='" + CodDepartamento + "' GROUP BY  Funcionarios.Codigo, Funcionarios.Nome, Funcionarios.DataNascimento, Funcionarios.Sexo, Funcionarios.Qualificacao, Funcionarios.VencimentoMensal, Funcionarios.ValorSubsAlim, Funcionarios.ValorSubsEsp");
 
 
                 while (!objList.NoFim())
