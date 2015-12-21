@@ -17,6 +17,7 @@ namespace SINFDashboard360.Pri_Bridge
 
             StdBELista objListCab;
             StdBELista objListLin;
+            StdBELista objListCat;
             DocCompra dc = new DocCompra();
             List<DocCompra> listdc = new List<DocCompra>();
             LinhaDocCompra lindc = new LinhaDocCompra();
@@ -58,7 +59,16 @@ namespace SINFDashboard360.Pri_Bridge
                         lindc.TotalLiquido = objListLin.Valor("PrecoLiquido");
                         lindc.Armazem = objListLin.Valor("Armazem");
                         lindc.Lote = objListLin.Valor("Lote");
-
+                        if (!lindc.CodArtigo.Equals(""))
+                        {
+                            string artigoId = lindc.CodArtigo;
+                            objListCat = SINFDashboard360.Pri_Bridge.Engine.PriEngine.Engine.Consulta("SELECT Familias.Descricao from Familias,Artigo where Artigo.Artigo = '" + artigoId + "' and Familias.Familia = Artigo.Familia");
+                            while (!objListCat.NoFim())
+                            {
+                                lindc.CategoriaArtigo = objListCat.Valor("Descricao");
+                                objListCat.Seguinte();
+                            }
+                        }
                         listlindc.Add(lindc);
                         objListLin.Seguinte();
                     }

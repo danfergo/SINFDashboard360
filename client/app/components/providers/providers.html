@@ -60,21 +60,23 @@
           <h3 class="md-title">{{client.name}}</h3>
 
           <p>{{client.address}}</p>
+
+          <p ng-if="client.tax_number">N. contribuinte: {{client.tax_number}}</p>
+
+          <p ng-if="client.currency">Moeda: {{client.currency}}</p>
+
+          <p ng-if="client.phone">Telefone: {{client.phone}}</p>
+
+          <p ng-if="client.language">Idioma: {{client.language}}</p>
         </div>
         <div flex="none" class="text-right">
           <div style="padding:20px 10px 0 0;">
-            <b>Comprou<br>{{client.valorEncomendas | currency:"€"}}</b><br>
+            <b>Comprou<br>{{client.valorEncomendas | currency:"€"}}</b><br><br>
             <b>Deve<br>{{client.porPagar | currency:"€"}}</b>
           </div>
         </div>
       </div>
-      <p ng-if="client.tax_number">N. contribuinte: {{client.tax_number}}</p>
 
-      <p ng-if="client.currency">Moeda: {{client.currency}}</p>
-
-      <p ng-if="client.phone">Telefone: {{client.phone}}</p>
-
-      <p ng-if="client.language">Idioma: {{client.language}}</p>
 
     </div>
   </div>

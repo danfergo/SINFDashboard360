@@ -21,6 +21,12 @@ namespace SINFDashboard360.Lib_Primavera.Model
             set;
         }
 
+        public string CategoriaArtigo
+        {
+            get;
+            set;
+        }
+
         public string IdCabecDoc
         {
             get;
@@ -81,12 +87,5 @@ namespace SINFDashboard360.Lib_Primavera.Model
             get;
             set;
         }
-
-        public string CategoriaArtigo
-        {
-            get;
-            set;
-        }
-
     }
 }
